@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adding the dataset">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Some Basic Data Analysis">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scikit-learn-course/gradient-boosting-machines/gradient-boosting.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/gradient-boosting-machines/gradient-boosting.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,26 +48,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.filtering.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/data-science/uni-course/exercises/blatt2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.filtering.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/GitHub/data-science/scikit-learn-course/gradient-boosting-machines",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\GitHub\data-science\scikit-learn-course\gradient-boosting-machines" />
       <recent name="C:\GitHub\data-science\uni-course\exercises\blatt2" />
       <recent name="C:\GitHub\data-science\uni-course\exercises\blatt3" />
       <recent name="C:\GitHub\data-science\scikit-learn-course\logistic-regression" />
       <recent name="C:\GitHub\data-science\freeCodeCamp-course\project-4" />
-      <recent name="C:\GitHub\data-science\freeCodeCamp-course\machine-learning" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\raw" />
@@ -119,14 +121,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Adding uni-project structure">
-      <option name="closed" value="true" />
-      <created>1760701572868</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1760701572868</updated>
     </task>
     <task id="LOCAL-00033" summary="data frames intro">
       <option name="closed" value="true" />
@@ -512,11 +506,18 @@
       <option name="project" value="LOCAL" />
       <updated>1764519307309</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Some Basic Data Analysis">
+      <option name="closed" value="true" />
+      <created>1764519859100</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1764519859101</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="simple linear regression" />
     <MESSAGE value="multiple linear regression" />
     <MESSAGE value="multiple linear regression with sklearn" />
     <MESSAGE value="First Lesson : Linear Regression" />
@@ -541,7 +542,8 @@
     <MESSAGE value="fix" />
     <MESSAGE value="license fix" />
     <MESSAGE value="Adding the dataset" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding the dataset" />
+    <MESSAGE value="Some Basic Data Analysis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some Basic Data Analysis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
