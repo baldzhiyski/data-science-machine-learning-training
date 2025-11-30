@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="license fix">
-      <change afterPath="$PROJECT_DIR$/scikit-learn-course/gradient-boosting-machines/gradient-boosting.ipynb" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adding the dataset">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scikit-learn-course/gradient-boosting-machines/gradient-boosting.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/gradient-boosting-machines/gradient-boosting.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,14 +119,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00031" summary="exercises">
-      <option name="closed" value="true" />
-      <created>1760271677847</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1760271677847</updated>
     </task>
     <task id="LOCAL-00032" summary="Adding uni-project structure">
       <option name="closed" value="true" />
@@ -513,11 +504,18 @@
       <option name="project" value="LOCAL" />
       <updated>1763305343319</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Adding the dataset">
+      <option name="closed" value="true" />
+      <created>1764519307309</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1764519307309</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding project 3 : some data cleaning techniques" />
     <MESSAGE value="simple linear regression" />
     <MESSAGE value="multiple linear regression" />
     <MESSAGE value="multiple linear regression with sklearn" />
@@ -542,7 +540,8 @@
     <MESSAGE value="Training with random forest" />
     <MESSAGE value="fix" />
     <MESSAGE value="license fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="license fix" />
+    <MESSAGE value="Adding the dataset" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding the dataset" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
