@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Intro to Gradient Boosting Technique">
-      <change afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/unsupervised-learning.ipynb" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Intro to Unsupervised Learning using K Clustering">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/unsupervised-learning.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/unsupervised-learning.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,14 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Basic funcs,methods and att">
-      <option name="closed" value="true" />
-      <created>1760710132844</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1760710132844</updated>
     </task>
     <task id="LOCAL-00035" summary="One column selection syntaxes">
       <option name="closed" value="true" />
@@ -513,11 +505,18 @@
       <option name="project" value="LOCAL" />
       <updated>1764525268226</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Intro to Unsupervised Learning using K Clustering">
+      <option name="closed" value="true" />
+      <created>1764527692881</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1764527692881</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="multiple linear regression with sklearn" />
     <MESSAGE value="First Lesson : Linear Regression" />
     <MESSAGE value="adding additional info" />
     <MESSAGE value="exploring the data" />
@@ -542,7 +541,8 @@
     <MESSAGE value="Adding the dataset" />
     <MESSAGE value="Some Basic Data Analysis" />
     <MESSAGE value="Intro to Gradient Boosting Technique" />
-    <option name="LAST_COMMIT_MESSAGE" value="Intro to Gradient Boosting Technique" />
+    <MESSAGE value="Intro to Unsupervised Learning using K Clustering" />
+    <option name="LAST_COMMIT_MESSAGE" value="Intro to Unsupervised Learning using K Clustering" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
