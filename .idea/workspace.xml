@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Intro to Unsupervised Learning using K Clustering">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Intro to Unsupervised Learning using DBSCAN and Hierarchical Clustering">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/unsupervised-learning.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/unsupervised-learning.ipynb" afterDir="false" />
     </list>
@@ -120,14 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00035" summary="One column selection syntaxes">
-      <option name="closed" value="true" />
-      <created>1760710352482</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1760710352482</updated>
     </task>
     <task id="LOCAL-00036" summary="selection of more columns">
       <option name="closed" value="true" />
@@ -513,11 +505,18 @@
       <option name="project" value="LOCAL" />
       <updated>1764527692881</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="Intro to Unsupervised Learning using DBSCAN and Hierarchical Clustering">
+      <option name="closed" value="true" />
+      <created>1764671837148</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1764671837148</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First Lesson : Linear Regression" />
     <MESSAGE value="adding additional info" />
     <MESSAGE value="exploring the data" />
     <MESSAGE value="filling the missing numerical data" />
@@ -542,7 +541,8 @@
     <MESSAGE value="Some Basic Data Analysis" />
     <MESSAGE value="Intro to Gradient Boosting Technique" />
     <MESSAGE value="Intro to Unsupervised Learning using K Clustering" />
-    <option name="LAST_COMMIT_MESSAGE" value="Intro to Unsupervised Learning using K Clustering" />
+    <MESSAGE value="Intro to Unsupervised Learning using DBSCAN and Hierarchical Clustering" />
+    <option name="LAST_COMMIT_MESSAGE" value="Intro to Unsupervised Learning using DBSCAN and Hierarchical Clustering" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
