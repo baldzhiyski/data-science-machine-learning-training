@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Evaluation of Hardcoded model">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Testing with Ridge Model">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scikit-learn-course/project/ml-project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/project/ml-project.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,14 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00040" summary="basic filtering">
-      <option name="closed" value="true" />
-      <created>1760777562849</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1760777562849</updated>
     </task>
     <task id="LOCAL-00041" summary="basic filtering operations">
       <option name="closed" value="true" />
@@ -512,12 +505,18 @@
       <option name="project" value="LOCAL" />
       <updated>1765226394031</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Evaluation of Baseline model">
+      <option name="closed" value="true" />
+      <created>1765226689037</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1765226689037</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="encoding the categorical data" />
-    <MESSAGE value="training and evaluation" />
     <MESSAGE value="single input prediction" />
     <MESSAGE value="using joblib for model saving" />
     <MESSAGE value="breast cancer prediction exercise" />
@@ -541,7 +540,9 @@
     <MESSAGE value="Loading the test set" />
     <MESSAGE value="Basic Data Analysis" />
     <MESSAGE value="Evaluation of Hardcoded model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Evaluation of Hardcoded model" />
+    <MESSAGE value="Evaluation of Baseline model" />
+    <MESSAGE value="Testing with Ridge Model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing with Ridge Model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
