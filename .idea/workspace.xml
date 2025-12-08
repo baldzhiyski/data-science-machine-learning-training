@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Intro to Unsupervised Learning using DBSCAN and Hierarchical Clustering">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="principal component analysis amd t-SNE">
+      <change afterPath="$PROJECT_DIR$/scikit-learn-course/project/ml-project.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/unsupervised-learning.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/unsupervised-learning.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,27 +47,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.filtering.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/GitHub/data-science/scikit-learn-course/gradient-boosting-machines",
-    "run.code.analysis.last.selected.profile": "aDefault",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.filtering.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/data-science/scikit-learn-course/project&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\GitHub\data-science\scikit-learn-course\project" />
       <recent name="C:\GitHub\data-science\scikit-learn-course\gradient-boosting-machines" />
       <recent name="C:\GitHub\data-science\uni-course\exercises\blatt2" />
       <recent name="C:\GitHub\data-science\uni-course\exercises\blatt3" />
       <recent name="C:\GitHub\data-science\scikit-learn-course\logistic-regression" />
-      <recent name="C:\GitHub\data-science\freeCodeCamp-course\project-4" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\raw" />
@@ -120,14 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00036" summary="selection of more columns">
-      <option name="closed" value="true" />
-      <created>1760710686042</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1760710686042</updated>
     </task>
     <task id="LOCAL-00037" summary="basic operations">
       <option name="closed" value="true" />
@@ -513,11 +505,18 @@
       <option name="project" value="LOCAL" />
       <updated>1764671837148</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="principal component analysis amd t-SNE">
+      <option name="closed" value="true" />
+      <created>1764673200684</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1764673200684</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adding additional info" />
     <MESSAGE value="exploring the data" />
     <MESSAGE value="filling the missing numerical data" />
     <MESSAGE value="Scaling the features to small range of values" />
@@ -542,7 +541,8 @@
     <MESSAGE value="Intro to Gradient Boosting Technique" />
     <MESSAGE value="Intro to Unsupervised Learning using K Clustering" />
     <MESSAGE value="Intro to Unsupervised Learning using DBSCAN and Hierarchical Clustering" />
-    <option name="LAST_COMMIT_MESSAGE" value="Intro to Unsupervised Learning using DBSCAN and Hierarchical Clustering" />
+    <MESSAGE value="principal component analysis amd t-SNE" />
+    <option name="LAST_COMMIT_MESSAGE" value="principal component analysis amd t-SNE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
