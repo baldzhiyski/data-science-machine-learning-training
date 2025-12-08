@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="principal component analysis amd t-SNE">
-      <change afterPath="$PROJECT_DIR$/scikit-learn-course/project/ml-project.ipynb" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Loading the test set">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scikit-learn-course/project/ml-project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/project/ml-project.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,14 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00037" summary="basic operations">
-      <option name="closed" value="true" />
-      <created>1760711884315</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1760711884315</updated>
     </task>
     <task id="LOCAL-00038" summary="basic operations in pandas">
       <option name="closed" value="true" />
@@ -513,11 +505,18 @@
       <option name="project" value="LOCAL" />
       <updated>1764673200684</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Loading the test set">
+      <option name="closed" value="true" />
+      <created>1765223874179</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1765223874180</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="exploring the data" />
     <MESSAGE value="filling the missing numerical data" />
     <MESSAGE value="Scaling the features to small range of values" />
     <MESSAGE value="encoding the categorical data" />
@@ -542,7 +541,8 @@
     <MESSAGE value="Intro to Unsupervised Learning using K Clustering" />
     <MESSAGE value="Intro to Unsupervised Learning using DBSCAN and Hierarchical Clustering" />
     <MESSAGE value="principal component analysis amd t-SNE" />
-    <option name="LAST_COMMIT_MESSAGE" value="principal component analysis amd t-SNE" />
+    <MESSAGE value="Loading the test set" />
+    <option name="LAST_COMMIT_MESSAGE" value="Loading the test set" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
