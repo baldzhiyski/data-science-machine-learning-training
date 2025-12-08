@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Loading the test set">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Basic Data Analysis">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scikit-learn-course/project/ml-project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/project/ml-project.ipynb" afterDir="false" />
     </list>
@@ -120,14 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00038" summary="basic operations in pandas">
-      <option name="closed" value="true" />
-      <created>1760712471133</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1760712471133</updated>
     </task>
     <task id="LOCAL-00039" summary="solution to the first exercise">
       <option name="closed" value="true" />
@@ -513,11 +505,18 @@
       <option name="project" value="LOCAL" />
       <updated>1765223874180</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Basic Data Analysis">
+      <option name="closed" value="true" />
+      <created>1765225446857</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1765225446857</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="filling the missing numerical data" />
     <MESSAGE value="Scaling the features to small range of values" />
     <MESSAGE value="encoding the categorical data" />
     <MESSAGE value="training and evaluation" />
@@ -542,7 +541,8 @@
     <MESSAGE value="Intro to Unsupervised Learning using DBSCAN and Hierarchical Clustering" />
     <MESSAGE value="principal component analysis amd t-SNE" />
     <MESSAGE value="Loading the test set" />
-    <option name="LAST_COMMIT_MESSAGE" value="Loading the test set" />
+    <MESSAGE value="Basic Data Analysis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic Data Analysis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
