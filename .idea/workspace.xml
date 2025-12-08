@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Testing with Ridge Model">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Testing with Gradient Boosting">
       <change beforePath="$PROJECT_DIR$/scikit-learn-course/project/ml-project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/project/ml-project.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,22 +119,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00042" summary="final operations of the filtering section">
-      <option name="closed" value="true" />
-      <created>1760786034027</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1760786034027</updated>
-    </task>
-    <task id="LOCAL-00043" summary="intro to data extraction">
-      <option name="closed" value="true" />
-      <created>1760864679089</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1760864679089</updated>
     </task>
     <task id="LOCAL-00044" summary="some more functions for data extraction">
       <option name="closed" value="true" />
@@ -512,12 +496,26 @@
       <option name="project" value="LOCAL" />
       <updated>1765228685335</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="Testing with Rdom Forest">
+      <option name="closed" value="true" />
+      <created>1765229026641</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1765229026642</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Testing with Gradient Boosting">
+      <option name="closed" value="true" />
+      <created>1765229142318</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1765229142318</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="single input prediction" />
-    <MESSAGE value="using joblib for model saving" />
     <MESSAGE value="breast cancer prediction exercise" />
     <MESSAGE value="feat(eda): complete data exploration steps 1.1–1.5 with markdown documentation and visual analysis" />
     <MESSAGE value="Missing values and integrity check" />
@@ -541,7 +539,9 @@
     <MESSAGE value="Evaluation of Hardcoded model" />
     <MESSAGE value="Evaluation of Baseline model" />
     <MESSAGE value="Testing with Ridge Model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing with Ridge Model" />
+    <MESSAGE value="Testing with Rdom Forest" />
+    <MESSAGE value="Testing with Gradient Boosting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing with Gradient Boosting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -585,6 +585,11 @@
           <url>file://$PROJECT_DIR$/uni-course/exercises/blatt5/aufgabenblatt_5.ipynb</url>
           <line>188</line>
           <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>file://$PROJECT_DIR$/scikit-learn-course/project/ml-project.ipynb</url>
+          <line>599</line>
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
