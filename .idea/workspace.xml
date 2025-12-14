@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adding the second notebook for managing missing values and cleaning techniques">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Cleaning the dataset">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_target_and_features.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_target_and_features.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,20 +47,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.filtering.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/GitHub/data-science/scikit-learn-course/project",
-    "run.code.analysis.last.selected.profile": "aDefault",
-    "settings.editor.selected.configurable": "com.github.copilot.settings.completions.CompletionsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.filtering.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/data-science/scikit-learn-course/project&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\GitHub\data-science\scikit-learn-course\project" />
@@ -121,22 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00047" summary="second project of the course - data visualisation with pandas">
-      <option name="closed" value="true" />
-      <created>1760876448667</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1760876448667</updated>
-    </task>
-    <task id="LOCAL-00048" summary="add dep">
-      <option name="closed" value="true" />
-      <created>1760876456496</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1760876456496</updated>
     </task>
     <task id="LOCAL-00049" summary="exploring the data sets">
       <option name="closed" value="true" />
@@ -514,12 +497,26 @@
       <option name="project" value="LOCAL" />
       <updated>1765722778366</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="Adjustments of first section">
+      <option name="closed" value="true" />
+      <created>1765725091452</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1765725091452</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Cleaning the dataset">
+      <option name="closed" value="true" />
+      <created>1765725161417</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1765725161417</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing directory path and adding exporting genres table" />
-    <MESSAGE value="Trends and artists influence" />
     <MESSAGE value="Adding the data set for the new notebook" />
     <MESSAGE value="Some basic data exploration" />
     <MESSAGE value="Encoding and imputing" />
@@ -543,7 +540,9 @@
     <MESSAGE value="Some Hypertuning" />
     <MESSAGE value="Adjusting the EDA Process" />
     <MESSAGE value="Adding the second notebook for managing missing values and cleaning techniques" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding the second notebook for managing missing values and cleaning techniques" />
+    <MESSAGE value="Adjustments of first section" />
+    <MESSAGE value="Cleaning the dataset" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning the dataset" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
