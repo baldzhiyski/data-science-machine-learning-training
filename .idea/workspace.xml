@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Cleaning the dataset">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="fix(cleaning): parse all album release_date formats (epoch ms/sec + YYYY/YY-MM/YY-MM-DD) without year filtering">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_target_and_features.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_target_and_features.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,22 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00049" summary="exploring the data sets">
-      <option name="closed" value="true" />
-      <created>1761486013593</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1761486013593</updated>
-    </task>
-    <task id="LOCAL-00050" summary="intro to concatenating">
-      <option name="closed" value="true" />
-      <created>1761486659089</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1761486659090</updated>
     </task>
     <task id="LOCAL-00051" summary="Joins">
       <option name="closed" value="true" />
@@ -513,12 +497,26 @@
       <option name="project" value="LOCAL" />
       <updated>1765725161417</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="Adjusting the names of the notebooks">
+      <option name="closed" value="true" />
+      <created>1765725833977</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1765725833977</updated>
+    </task>
+    <task id="LOCAL-00099" summary="fix(cleaning): parse all album release_date formats (epoch ms/sec + YYYY/YY-MM/YY-MM-DD) without year filtering">
+      <option name="closed" value="true" />
+      <created>1765729429309</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1765729429309</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding the data set for the new notebook" />
-    <MESSAGE value="Some basic data exploration" />
     <MESSAGE value="Encoding and imputing" />
     <MESSAGE value="Training with decision tree" />
     <MESSAGE value="Training with random forest" />
@@ -542,7 +540,9 @@
     <MESSAGE value="Adding the second notebook for managing missing values and cleaning techniques" />
     <MESSAGE value="Adjustments of first section" />
     <MESSAGE value="Cleaning the dataset" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaning the dataset" />
+    <MESSAGE value="Adjusting the names of the notebooks" />
+    <MESSAGE value="fix(cleaning): parse all album release_date formats (epoch ms/sec + YYYY/YY-MM/YY-MM-DD) without year filtering" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(cleaning): parse all album release_date formats (epoch ms/sec + YYYY/YY-MM/YY-MM-DD) without year filtering" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
