@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adjusting the EDA Process">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adding the second notebook for managing missing values and cleaning techniques">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,14 +121,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00046" summary="pivot tables">
-      <option name="closed" value="true" />
-      <created>1760871399164</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1760871399164</updated>
     </task>
     <task id="LOCAL-00047" summary="second project of the course - data visualisation with pandas">
       <option name="closed" value="true" />
@@ -513,11 +506,18 @@
       <option name="project" value="LOCAL" />
       <updated>1765721909605</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="Adding the second notebook for managing missing values and cleaning techniques">
+      <option name="closed" value="true" />
+      <created>1765722778366</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1765722778366</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Missing values and integrity check" />
     <MESSAGE value="Fixing directory path and adding exporting genres table" />
     <MESSAGE value="Trends and artists influence" />
     <MESSAGE value="Adding the data set for the new notebook" />
@@ -542,7 +542,8 @@
     <MESSAGE value="Testing with Gradient Boosting" />
     <MESSAGE value="Some Hypertuning" />
     <MESSAGE value="Adjusting the EDA Process" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusting the EDA Process" />
+    <MESSAGE value="Adding the second notebook for managing missing values and cleaning techniques" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding the second notebook for managing missing values and cleaning techniques" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
