@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="fix(cleaning): parse all album release_date formats (epoch ms/sec + YYYY/YY-MM/YY-MM-DD) without year filtering">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="feat(pipeline): create reproducible modeling layer (track/album/artist) and save parquet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" afterDir="false" />
     </list>
@@ -120,14 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Joins">
-      <option name="closed" value="true" />
-      <created>1761488283327</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1761488283327</updated>
     </task>
     <task id="LOCAL-00052" summary="simple regEx">
       <option name="closed" value="true" />
@@ -513,11 +505,18 @@
       <option name="project" value="LOCAL" />
       <updated>1765729429309</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="feat(pipeline): create reproducible modeling layer (track/album/artist) and save parquet">
+      <option name="closed" value="true" />
+      <created>1765729684252</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1765729684252</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Encoding and imputing" />
     <MESSAGE value="Training with decision tree" />
     <MESSAGE value="Training with random forest" />
     <MESSAGE value="fix" />
@@ -542,7 +541,8 @@
     <MESSAGE value="Cleaning the dataset" />
     <MESSAGE value="Adjusting the names of the notebooks" />
     <MESSAGE value="fix(cleaning): parse all album release_date formats (epoch ms/sec + YYYY/YY-MM/YY-MM-DD) without year filtering" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(cleaning): parse all album release_date formats (epoch ms/sec + YYYY/YY-MM/YY-MM-DD) without year filtering" />
+    <MESSAGE value="feat(pipeline): create reproducible modeling layer (track/album/artist) and save parquet" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(pipeline): create reproducible modeling layer (track/album/artist) and save parquet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
