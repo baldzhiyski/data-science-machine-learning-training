@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Issue fixes">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="feat(hypertuning) :Adjusting 3rd notebook and implemnting a hypertuning notebook">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_tuning_and_robustness.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_tuning_and_robustness.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -70,11 +71,11 @@
       <recent name="C:\GitHub\data-science\scikit-learn-course\logistic-regression" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\models\before-tunning" />
+      <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\processed" />
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\raw" />
       <recent name="C:\GitHub\data-science\scikit-learn-course\linear-regression" />
       <recent name="C:\GitHub\data-science\freeCodeCamp-course\pivot-table" />
-      <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\notebooks" />
-      <recent name="C:\GitHub\data-science" />
     </key>
   </component>
   <component name="RunManager">
@@ -120,14 +121,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Adding project 3 : some data cleaning techniques">
-      <option name="closed" value="true" />
-      <created>1761493020251</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1761493020251</updated>
     </task>
     <task id="LOCAL-00054" summary="simple linear regression">
       <option name="closed" value="true" />
@@ -513,11 +506,18 @@
       <option name="project" value="LOCAL" />
       <updated>1766421250943</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="feat(training) : Adjusting the models">
+      <option name="closed" value="true" />
+      <created>1766483508649</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1766483508650</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Training with random forest" />
     <MESSAGE value="fix" />
     <MESSAGE value="license fix" />
     <MESSAGE value="Adding the dataset" />
@@ -542,7 +542,8 @@
     <MESSAGE value="fix(cleaning): parse all album release_date formats (epoch ms/sec + YYYY/YY-MM/YY-MM-DD) without year filtering" />
     <MESSAGE value="feat(pipeline): create reproducible modeling layer (track/album/artist) and save parquet" />
     <MESSAGE value="Issue fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Issue fixes" />
+    <MESSAGE value="feat(training) : Adjusting the models" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(training) : Adjusting the models" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
