@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="feat(modeling): add full Notebook 3 training pipelines + configs + reports&#10;&#10;- Build track/album/artist modeling datasets from cleaned CSV exports&#10;- Implement robust joins + feature engineering (release time features, artist aggregates, genre multi-hot)&#10;- Add leakage guards for popularity tasks (exclude album_popularity / artist_popularity by default)&#10;- Create targets for:&#10;  - track popularity regression&#10;  - album popularity regression&#10;  - hit prediction (time-aware, zero-aware thresholds)&#10;  - explicit/content prediction&#10;  - multi-label mood tags&#10;- Train and save sklearn pipelines:&#10;  - Ridge regression for popularity&#10;  - SGDClassifier(log_loss) for hit + explicit (fast on sparse data)&#10;  - OneVsRest multi-label mood model with sparse-friendly base learner&#10;- Add artist clustering pipeline (impute + scale + PCA + KMeans) + persisted artifacts&#10;- Persist feature contract for batch scoring (feature_config.json)&#10;- Persist run metrics + dataset shapes (metrics_report.json)&#10;- Improve notebook documentation with detailed markdown explanations per modeling section">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Issue fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,14 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00052" summary="simple regEx">
-      <option name="closed" value="true" />
-      <created>1761489293385</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1761489293385</updated>
     </task>
     <task id="LOCAL-00053" summary="Adding project 3 : some data cleaning techniques">
       <option name="closed" value="true" />
@@ -514,11 +505,18 @@
       <option name="project" value="LOCAL" />
       <updated>1765729684252</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="Issue fixes">
+      <option name="closed" value="true" />
+      <created>1766421250943</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1766421250943</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Training with decision tree" />
     <MESSAGE value="Training with random forest" />
     <MESSAGE value="fix" />
     <MESSAGE value="license fix" />
@@ -543,7 +541,8 @@
     <MESSAGE value="Adjusting the names of the notebooks" />
     <MESSAGE value="fix(cleaning): parse all album release_date formats (epoch ms/sec + YYYY/YY-MM/YY-MM-DD) without year filtering" />
     <MESSAGE value="feat(pipeline): create reproducible modeling layer (track/album/artist) and save parquet" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(pipeline): create reproducible modeling layer (track/album/artist) and save parquet" />
+    <MESSAGE value="Issue fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Issue fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
