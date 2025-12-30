@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Fixing the dataset">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Implementation of base algorithm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/recommendation-systems-algorithms.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/recommendation-systems-algorithms.ipynb" afterDir="false" />
     </list>
@@ -120,22 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00058" summary="adding additional info">
-      <option name="closed" value="true" />
-      <created>1762088406509</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1762088406509</updated>
-    </task>
-    <task id="LOCAL-00059" summary="exploring the data">
-      <option name="closed" value="true" />
-      <created>1762092442091</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1762092442091</updated>
     </task>
     <task id="LOCAL-00060" summary="filling the missing numerical data">
       <option name="closed" value="true" />
@@ -513,12 +497,26 @@
       <option name="project" value="LOCAL" />
       <updated>1767094639929</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="Train/Test Split and Metrics Functions">
+      <option name="closed" value="true" />
+      <created>1767096686574</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1767096686574</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Implementation of base algorithm">
+      <option name="closed" value="true" />
+      <created>1767097111242</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1767097111242</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Intro to Gradient Boosting Technique" />
-    <MESSAGE value="Intro to Unsupervised Learning using K Clustering" />
     <MESSAGE value="Intro to Unsupervised Learning using DBSCAN and Hierarchical Clustering" />
     <MESSAGE value="principal component analysis amd t-SNE" />
     <MESSAGE value="Loading the test set" />
@@ -542,7 +540,9 @@
     <MESSAGE value="Some more tuning" />
     <MESSAGE value="Creating the notebook and the demo dataset" />
     <MESSAGE value="Fixing the dataset" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing the dataset" />
+    <MESSAGE value="Train/Test Split and Metrics Functions" />
+    <MESSAGE value="Implementation of base algorithm" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of base algorithm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
