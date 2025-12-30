@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Some more tuning">
-      <change afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/recommendation-systems-algorithms.ipynb" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Fixing the dataset">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/recommendation-systems-algorithms.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/recommendation-systems-algorithms.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,22 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00056" summary="multiple linear regression with sklearn">
-      <option name="closed" value="true" />
-      <created>1761548189492</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1761548189492</updated>
-    </task>
-    <task id="LOCAL-00057" summary="First Lesson : Linear Regression">
-      <option name="closed" value="true" />
-      <created>1761921433975</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1761921433976</updated>
     </task>
     <task id="LOCAL-00058" summary="adding additional info">
       <option name="closed" value="true" />
@@ -513,12 +497,26 @@
       <option name="project" value="LOCAL" />
       <updated>1767081838623</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="Creating the notebook and the demo dataset">
+      <option name="closed" value="true" />
+      <created>1767094243550</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1767094243550</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Fixing the dataset">
+      <option name="closed" value="true" />
+      <created>1767094639929</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1767094639929</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding the dataset" />
-    <MESSAGE value="Some Basic Data Analysis" />
     <MESSAGE value="Intro to Gradient Boosting Technique" />
     <MESSAGE value="Intro to Unsupervised Learning using K Clustering" />
     <MESSAGE value="Intro to Unsupervised Learning using DBSCAN and Hierarchical Clustering" />
@@ -542,7 +540,9 @@
     <MESSAGE value="feat(training) : Adjusting the models" />
     <MESSAGE value="feat(hypertuning) :Adjusting 3rd notebook and implemnting a hypertuning notebook" />
     <MESSAGE value="Some more tuning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some more tuning" />
+    <MESSAGE value="Creating the notebook and the demo dataset" />
+    <MESSAGE value="Fixing the dataset" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing the dataset" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
