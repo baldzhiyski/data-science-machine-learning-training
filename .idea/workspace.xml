@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Add content-based TF-IDF recommender and evaluation">
-      <change beforePath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/recommendation-systems-algorithms.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/recommendation-systems-algorithms.ipynb" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Running test for a new user">
+      <change afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/anomaly-detection.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,54 +119,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00062" summary="encoding the categorical data">
-      <option name="closed" value="true" />
-      <created>1762093532038</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1762093532052</updated>
-    </task>
-    <task id="LOCAL-00063" summary="training and evaluation">
-      <option name="closed" value="true" />
-      <created>1762094474850</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1762094474852</updated>
-    </task>
-    <task id="LOCAL-00064" summary="single input prediction">
-      <option name="closed" value="true" />
-      <created>1762095914351</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1762095914351</updated>
-    </task>
-    <task id="LOCAL-00065" summary="using joblib for model saving">
-      <option name="closed" value="true" />
-      <created>1762096089816</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1762096089816</updated>
-    </task>
-    <task id="LOCAL-00066" summary="breast cancer prediction exercise">
-      <option name="closed" value="true" />
-      <created>1762108416562</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1762108416562</updated>
-    </task>
-    <task id="LOCAL-00067" summary="feat(eda): complete data exploration steps 1.1–1.5 with markdown documentation and visual analysis">
-      <option name="closed" value="true" />
-      <created>1762169247685</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1762169247686</updated>
     </task>
     <task id="LOCAL-00068" summary="Missing values and integrity check">
       <option name="closed" value="true" />
@@ -512,16 +464,58 @@
       <option name="project" value="LOCAL" />
       <updated>1767098540305</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Add Item-Item Co-visitation recommender and evaluation">
+      <option name="closed" value="true" />
+      <created>1767099282414</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1767099282414</updated>
+    </task>
+    <task id="LOCAL-00112" summary="Add Collaborative Filtering , User-based recommender and evaluation">
+      <option name="closed" value="true" />
+      <created>1767101838832</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1767101838832</updated>
+    </task>
+    <task id="LOCAL-00113" summary="Add Collaborative Filtering , Item-based recommender and evaluation">
+      <option name="closed" value="true" />
+      <created>1767101974383</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1767101974383</updated>
+    </task>
+    <task id="LOCAL-00114" summary="Add TF Matrix Factorization  recommender and evaluation with TensorFlow">
+      <option name="closed" value="true" />
+      <created>1767102769237</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1767102769238</updated>
+    </task>
+    <task id="LOCAL-00115" summary="Add Two-Tower recommendations and evaluation with TensorFlow">
+      <option name="closed" value="true" />
+      <created>1767103421016</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1767103421016</updated>
+    </task>
+    <task id="LOCAL-00116" summary="Running test for a new user">
+      <option name="closed" value="true" />
+      <created>1767103581440</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1767103581440</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Loading the test set" />
-    <MESSAGE value="Basic Data Analysis" />
-    <MESSAGE value="Evaluation of Hardcoded model" />
-    <MESSAGE value="Evaluation of Baseline model" />
-    <MESSAGE value="Testing with Ridge Model" />
-    <MESSAGE value="Testing with Rdom Forest" />
     <MESSAGE value="Testing with Gradient Boosting" />
     <MESSAGE value="Some Hypertuning" />
     <MESSAGE value="Adjusting the EDA Process" />
@@ -541,7 +535,13 @@
     <MESSAGE value="Implementation of base algorithm" />
     <MESSAGE value="Adding a summary for the baseline" />
     <MESSAGE value="Add content-based TF-IDF recommender and evaluation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add content-based TF-IDF recommender and evaluation" />
+    <MESSAGE value="Add Item-Item Co-visitation recommender and evaluation" />
+    <MESSAGE value="Add Collaborative Filtering , User-based recommender and evaluation" />
+    <MESSAGE value="Add Collaborative Filtering , Item-based recommender and evaluation" />
+    <MESSAGE value="Add TF Matrix Factorization  recommender and evaluation with TensorFlow" />
+    <MESSAGE value="Add Two-Tower recommendations and evaluation with TensorFlow" />
+    <MESSAGE value="Running test for a new user" />
+    <option name="LAST_COMMIT_MESSAGE" value="Running test for a new user" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
