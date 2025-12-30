@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Running test for a new user">
-      <change afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/anomaly-detection.ipynb" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Data Creation + Split">
+      <change beforePath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/anomaly-detection.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/anomaly-detection.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,22 +119,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00068" summary="Missing values and integrity check">
-      <option name="closed" value="true" />
-      <created>1762681598384</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1762681598384</updated>
-    </task>
-    <task id="LOCAL-00069" summary="Fixing directory path and adding exporting genres table">
-      <option name="closed" value="true" />
-      <created>1762682688140</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1762682688140</updated>
     </task>
     <task id="LOCAL-00070" summary="Trends and artists influence">
       <option name="closed" value="true" />
@@ -512,12 +496,26 @@
       <option name="project" value="LOCAL" />
       <updated>1767103581440</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="Initial Commit + Helper Functions">
+      <option name="closed" value="true" />
+      <created>1767111675080</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1767111675080</updated>
+    </task>
+    <task id="LOCAL-00118" summary="Data Creation + Split">
+      <option name="closed" value="true" />
+      <created>1767111826703</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1767111826703</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Testing with Gradient Boosting" />
-    <MESSAGE value="Some Hypertuning" />
     <MESSAGE value="Adjusting the EDA Process" />
     <MESSAGE value="Adding the second notebook for managing missing values and cleaning techniques" />
     <MESSAGE value="Adjustments of first section" />
@@ -541,7 +539,9 @@
     <MESSAGE value="Add TF Matrix Factorization  recommender and evaluation with TensorFlow" />
     <MESSAGE value="Add Two-Tower recommendations and evaluation with TensorFlow" />
     <MESSAGE value="Running test for a new user" />
-    <option name="LAST_COMMIT_MESSAGE" value="Running test for a new user" />
+    <MESSAGE value="Initial Commit + Helper Functions" />
+    <MESSAGE value="Data Creation + Split" />
+    <option name="LAST_COMMIT_MESSAGE" value="Data Creation + Split" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
