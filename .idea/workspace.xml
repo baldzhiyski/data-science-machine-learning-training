@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Implementation of base algorithm">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Add content-based TF-IDF recommender and evaluation">
       <change beforePath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/recommendation-systems-algorithms.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/recommendation-systems-algorithms.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,22 +119,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00060" summary="filling the missing numerical data">
-      <option name="closed" value="true" />
-      <created>1762092623443</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1762092623443</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Scaling the features to small range of values">
-      <option name="closed" value="true" />
-      <created>1762092844913</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1762092844913</updated>
     </task>
     <task id="LOCAL-00062" summary="encoding the categorical data">
       <option name="closed" value="true" />
@@ -513,12 +496,26 @@
       <option name="project" value="LOCAL" />
       <updated>1767097111242</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="Adding a summary for the baseline">
+      <option name="closed" value="true" />
+      <created>1767097424513</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1767097424513</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Add content-based TF-IDF recommender and evaluation">
+      <option name="closed" value="true" />
+      <created>1767098540305</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1767098540305</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Intro to Unsupervised Learning using DBSCAN and Hierarchical Clustering" />
-    <MESSAGE value="principal component analysis amd t-SNE" />
     <MESSAGE value="Loading the test set" />
     <MESSAGE value="Basic Data Analysis" />
     <MESSAGE value="Evaluation of Hardcoded model" />
@@ -542,7 +539,9 @@
     <MESSAGE value="Fixing the dataset" />
     <MESSAGE value="Train/Test Split and Metrics Functions" />
     <MESSAGE value="Implementation of base algorithm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation of base algorithm" />
+    <MESSAGE value="Adding a summary for the baseline" />
+    <MESSAGE value="Add content-based TF-IDF recommender and evaluation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add content-based TF-IDF recommender and evaluation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
