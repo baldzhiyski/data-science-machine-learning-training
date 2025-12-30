@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="feat(hypertuning) :Adjusting 3rd notebook and implemnting a hypertuning notebook">
+      <change afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/recommendation-systems-algorithms.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_tuning_and_robustness.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_tuning_and_robustness.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,14 +121,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00054" summary="simple linear regression">
-      <option name="closed" value="true" />
-      <created>1761496591731</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1761496591731</updated>
     </task>
     <task id="LOCAL-00055" summary="multiple linear regression">
       <option name="closed" value="true" />
@@ -514,11 +506,18 @@
       <option name="project" value="LOCAL" />
       <updated>1766483508650</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="feat(hypertuning) :Adjusting 3rd notebook and implemnting a hypertuning notebook">
+      <option name="closed" value="true" />
+      <created>1766508684110</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1766508684112</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix" />
     <MESSAGE value="license fix" />
     <MESSAGE value="Adding the dataset" />
     <MESSAGE value="Some Basic Data Analysis" />
@@ -543,7 +542,8 @@
     <MESSAGE value="feat(pipeline): create reproducible modeling layer (track/album/artist) and save parquet" />
     <MESSAGE value="Issue fixes" />
     <MESSAGE value="feat(training) : Adjusting the models" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(training) : Adjusting the models" />
+    <MESSAGE value="feat(hypertuning) :Adjusting 3rd notebook and implemnting a hypertuning notebook" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(hypertuning) :Adjusting 3rd notebook and implemnting a hypertuning notebook" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
