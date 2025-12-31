@@ -15,5 +15,5 @@ freeCodeCamp-course/project-4/IMDB Dataset.csv
 # Ignore datasets
 machine-learning/logistic-regression/weatherAUS.csv
 machine-learning/desicion-trees-random-forest/weatherAUS.csv
-
+machine-learning/machine-learning-specialization/notebooks
 *.csv

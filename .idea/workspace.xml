@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Implementation of Autoencoders" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Folder rename">
+      <change afterPath="$PROJECT_DIR$/machine-learning/reinforcement-learning/reinforcement-learning.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,27 +49,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.filtering.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/data-science/scikit-learn-course/project&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.filtering.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/GitHub/data-science/machine-learning/machine-learning-specialization/notebooks",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "com.github.copilot.settings.general.GeneralConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\GitHub\data-science\machine-learning\machine-learning-specialization\notebooks" />
       <recent name="C:\GitHub\data-science\scikit-learn-course\project" />
       <recent name="C:\GitHub\data-science\scikit-learn-course\gradient-boosting-machines" />
       <recent name="C:\GitHub\data-science\uni-course\exercises\blatt2" />
       <recent name="C:\GitHub\data-science\uni-course\exercises\blatt3" />
-      <recent name="C:\GitHub\data-science\scikit-learn-course\logistic-regression" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\models\before-tunning" />
@@ -117,14 +122,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00074" summary="Some basic data exploration">
-      <option name="closed" value="true" />
-      <created>1762700041670</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1762700041670</updated>
     </task>
     <task id="LOCAL-00075" summary="Encoding and imputing">
       <option name="closed" value="true" />
@@ -510,11 +507,18 @@
       <option name="project" value="LOCAL" />
       <updated>1767165535488</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="Folder rename">
+      <option name="closed" value="true" />
+      <created>1767166093981</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1767166093982</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adjusting the names of the notebooks" />
     <MESSAGE value="fix(cleaning): parse all album release_date formats (epoch ms/sec + YYYY/YY-MM/YY-MM-DD) without year filtering" />
     <MESSAGE value="feat(pipeline): create reproducible modeling layer (track/album/artist) and save parquet" />
     <MESSAGE value="Issue fixes" />
@@ -539,7 +543,8 @@
     <MESSAGE value="Implementation of Isolation Forest Alg" />
     <MESSAGE value="Implementation of LOF" />
     <MESSAGE value="Implementation of Autoencoders" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation of Autoencoders" />
+    <MESSAGE value="Folder rename" />
+    <option name="LAST_COMMIT_MESSAGE" value="Folder rename" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
