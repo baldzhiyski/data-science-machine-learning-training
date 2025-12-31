@@ -13,6 +13,7 @@ uni-course/spotify-data-project/data/reports
 freeCodeCamp-course/project-4/IMDB Dataset.csv
 
 # Ignore datasets
-scikit-learn-course/logistic-regression/weatherAUS.csv
-scikit-learn-course/desicion-trees-random-forest/weatherAUS.csv
+machine-learning/logistic-regression/weatherAUS.csv
+machine-learning/desicion-trees-random-forest/weatherAUS.csv
+
 *.csv

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Implementation of Gaussian">
-      <change beforePath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/anomaly-detection.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/anomaly-detection.ipynb" afterDir="false" />
-    </list>
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Implementation of Autoencoders" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,30 +117,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Trends and artists influence">
-      <option name="closed" value="true" />
-      <created>1762686219093</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1762686219093</updated>
-    </task>
-    <task id="LOCAL-00072" summary="Trends and artists influence">
-      <option name="closed" value="true" />
-      <created>1762686228314</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1762686228314</updated>
-    </task>
-    <task id="LOCAL-00073" summary="Adding the data set for the new notebook">
-      <option name="closed" value="true" />
-      <created>1762698370943</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1762698370943</updated>
     </task>
     <task id="LOCAL-00074" summary="Some basic data exploration">
       <option name="closed" value="true" />
@@ -512,13 +486,34 @@
       <option name="project" value="LOCAL" />
       <updated>1767112082133</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="Implementation of Isolation Forest Alg">
+      <option name="closed" value="true" />
+      <created>1767163185166</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1767163185166</updated>
+    </task>
+    <task id="LOCAL-00121" summary="Implementation of LOF">
+      <option name="closed" value="true" />
+      <created>1767163583164</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1767163583164</updated>
+    </task>
+    <task id="LOCAL-00122" summary="Implementation of Autoencoders">
+      <option name="closed" value="true" />
+      <created>1767165535488</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1767165535488</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding the second notebook for managing missing values and cleaning techniques" />
-    <MESSAGE value="Adjustments of first section" />
-    <MESSAGE value="Cleaning the dataset" />
     <MESSAGE value="Adjusting the names of the notebooks" />
     <MESSAGE value="fix(cleaning): parse all album release_date formats (epoch ms/sec + YYYY/YY-MM/YY-MM-DD) without year filtering" />
     <MESSAGE value="feat(pipeline): create reproducible modeling layer (track/album/artist) and save parquet" />
@@ -541,7 +536,10 @@
     <MESSAGE value="Initial Commit + Helper Functions" />
     <MESSAGE value="Data Creation + Split" />
     <MESSAGE value="Implementation of Gaussian" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation of Gaussian" />
+    <MESSAGE value="Implementation of Isolation Forest Alg" />
+    <MESSAGE value="Implementation of LOF" />
+    <MESSAGE value="Implementation of Autoencoders" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of Autoencoders" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -590,6 +588,11 @@
           <url>file://$PROJECT_DIR$/scikit-learn-course/project/ml-project.ipynb</url>
           <line>599</line>
           <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>file://$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/anomaly-detection.ipynb</url>
+          <line>466</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
