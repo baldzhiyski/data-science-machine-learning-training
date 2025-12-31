@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Data Creation + Split">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Implementation of Gaussian">
       <change beforePath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/anomaly-detection.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scikit-learn-course/unsupervised-learning/anomaly-detection.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,14 +119,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00070" summary="Trends and artists influence">
-      <option name="closed" value="true" />
-      <created>1762685884158</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1762685884158</updated>
     </task>
     <task id="LOCAL-00071" summary="Trends and artists influence">
       <option name="closed" value="true" />
@@ -512,11 +504,18 @@
       <option name="project" value="LOCAL" />
       <updated>1767111826703</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="Implementation of Gaussian">
+      <option name="closed" value="true" />
+      <created>1767112082133</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1767112082133</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adjusting the EDA Process" />
     <MESSAGE value="Adding the second notebook for managing missing values and cleaning techniques" />
     <MESSAGE value="Adjustments of first section" />
     <MESSAGE value="Cleaning the dataset" />
@@ -541,7 +540,8 @@
     <MESSAGE value="Running test for a new user" />
     <MESSAGE value="Initial Commit + Helper Functions" />
     <MESSAGE value="Data Creation + Split" />
-    <option name="LAST_COMMIT_MESSAGE" value="Data Creation + Split" />
+    <MESSAGE value="Implementation of Gaussian" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of Gaussian" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
