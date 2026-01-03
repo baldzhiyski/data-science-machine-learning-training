@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adjustments">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Centralized slice-aware configuration, automated data loading via current_sample.json, and refactored EDA notebooks to generate reproducible, file-based reports instead of inline outputs.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_tuning_and_robustness.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_tuning_and_robustness.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,25 +58,25 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/GitHub/data-science/machine-learning/machine-learning-specialization/notebooks",
+    "last_opened_file_path": "C:/GitHub/data-science/uni-course/spotify-data-project/data/reports/01_schema_overview/slice_000",
     "run.code.analysis.last.selected.profile": "aDefault",
     "settings.editor.selected.configurable": "com.github.copilot.settings.completions.CompletionsConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\reports\01_schema_overview\slice_000" />
       <recent name="C:\GitHub\data-science\machine-learning\machine-learning-specialization\notebooks" />
       <recent name="C:\GitHub\data-science\scikit-learn-course\project" />
       <recent name="C:\GitHub\data-science\scikit-learn-course\gradient-boosting-machines" />
       <recent name="C:\GitHub\data-science\uni-course\exercises\blatt2" />
-      <recent name="C:\GitHub\data-science\uni-course\exercises\blatt3" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\interim\converted_sqlite_samples" />
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\models\before-tunning" />
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\processed" />
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\raw" />
       <recent name="C:\GitHub\data-science\scikit-learn-course\linear-regression" />
-      <recent name="C:\GitHub\data-science\freeCodeCamp-course\pivot-table" />
     </key>
   </component>
   <component name="RunManager">
@@ -120,14 +122,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00077" summary="Training with random forest">
-      <option name="closed" value="true" />
-      <created>1762765484150</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1762765484150</updated>
     </task>
     <task id="LOCAL-00078" summary="fix">
       <option name="closed" value="true" />
@@ -513,11 +507,18 @@
       <option name="project" value="LOCAL" />
       <updated>1767199913942</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="Centralized slice-aware configuration, automated data loading via current_sample.json, and refactored EDA notebooks to generate reproducible, file-based reports instead of inline outputs.">
+      <option name="closed" value="true" />
+      <created>1767462849313</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1767462849314</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Issue fixes" />
     <MESSAGE value="feat(training) : Adjusting the models" />
     <MESSAGE value="feat(hypertuning) :Adjusting 3rd notebook and implemnting a hypertuning notebook" />
     <MESSAGE value="Some more tuning" />
@@ -542,7 +543,8 @@
     <MESSAGE value="Folder rename" />
     <MESSAGE value="Reinforcement Learning Intro" />
     <MESSAGE value="Adjustments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjustments" />
+    <MESSAGE value="Centralized slice-aware configuration, automated data loading via current_sample.json, and refactored EDA notebooks to generate reproducible, file-based reports instead of inline outputs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Centralized slice-aware configuration, automated data loading via current_sample.json, and refactored EDA notebooks to generate reproducible, file-based reports instead of inline outputs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
