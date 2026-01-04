@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Fixing some paths">
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adjusting the training using GPU + adding notes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_tuning_and_robustness.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_tuning_and_robustness.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/sanityze.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/sanityze.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jupyter Notebook" />
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -123,14 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00081" summary="Some Basic Data Analysis">
-      <option name="closed" value="true" />
-      <created>1764519859100</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1764519859101</updated>
     </task>
     <task id="LOCAL-00082" summary="Intro to Gradient Boosting Technique">
       <option name="closed" value="true" />
@@ -516,11 +505,18 @@
       <option name="project" value="LOCAL" />
       <updated>1767521833158</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="Adjusting the training using GPU + adding notes">
+      <option name="closed" value="true" />
+      <created>1767528434440</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1767528434441</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creating the notebook and the demo dataset" />
     <MESSAGE value="Fixing the dataset" />
     <MESSAGE value="Train/Test Split and Metrics Functions" />
     <MESSAGE value="Implementation of base algorithm" />
@@ -545,7 +541,8 @@
     <MESSAGE value="Adjusting the paths" />
     <MESSAGE value="Fixing some issues" />
     <MESSAGE value="Fixing some paths" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing some paths" />
+    <MESSAGE value="Adjusting the training using GPU + adding notes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusting the training using GPU + adding notes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

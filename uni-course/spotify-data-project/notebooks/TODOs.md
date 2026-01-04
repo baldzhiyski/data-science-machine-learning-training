@@ -17,3 +17,6 @@
 
 - **Model evaluation**  
   Assess clustering quality using appropriate metrics and compare results across models and configurations.
+
+- **Documentation and reporting**
+   Create a full documentation of methods, results, and insights gained from the clustering analysis.
