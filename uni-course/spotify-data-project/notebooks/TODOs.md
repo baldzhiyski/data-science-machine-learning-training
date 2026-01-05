@@ -1,10 +1,8 @@
 ## Remaining Tasks Overview
 
-- **Test different base models**  
-  Experiment with multiple clustering algorithms to compare their behavior and performance on the dataset.
 
 - **Hyperparameter tuning**  
-  Optimize key model parameters to improve cluster quality and stability.
+  Optimize the hypertuning and change the models to the new ones
 
 - **Feature engineering**  
   Refine, scale, transform, or reduce features to enhance clustering performance.
@@ -17,6 +15,9 @@
 
 - **Model evaluation**  
   Assess clustering quality using appropriate metrics and compare results across models and configurations.
+
+- **Cleaning and preprocessing**  
+  Clean the notebooks and split them into different sections for better readability.
 
 - **Documentation and reporting**
    Create a full documentation of methods, results, and insights gained from the clustering analysis.
