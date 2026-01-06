@@ -4,9 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adjusting the training using GPU + adding notes">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Splitting the logic for notebook 3 into three for readability and creating some utils functions for usability + workflow test">
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_targets_and_feature_matrices.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/kmeans.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/paths.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/preprocess.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_tuning_and_robustness.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_data_batch_scoring.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_modeling_tables_build.ipynb.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/sanityze.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/helper_functions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -120,46 +133,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00082" summary="Intro to Gradient Boosting Technique">
-      <option name="closed" value="true" />
-      <created>1764525268226</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1764525268226</updated>
-    </task>
-    <task id="LOCAL-00083" summary="Intro to Unsupervised Learning using K Clustering">
-      <option name="closed" value="true" />
-      <created>1764527692881</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1764527692881</updated>
-    </task>
-    <task id="LOCAL-00084" summary="Intro to Unsupervised Learning using DBSCAN and Hierarchical Clustering">
-      <option name="closed" value="true" />
-      <created>1764671837148</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1764671837148</updated>
-    </task>
-    <task id="LOCAL-00085" summary="principal component analysis amd t-SNE">
-      <option name="closed" value="true" />
-      <created>1764673200684</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1764673200684</updated>
-    </task>
-    <task id="LOCAL-00086" summary="Loading the test set">
-      <option name="closed" value="true" />
-      <created>1765223874179</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1765223874180</updated>
     </task>
     <task id="LOCAL-00087" summary="Basic Data Analysis">
       <option name="closed" value="true" />
@@ -513,15 +486,50 @@
       <option name="project" value="LOCAL" />
       <updated>1767528434441</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="Adding missing things for the uni project">
+      <option name="closed" value="true" />
+      <created>1767534673344</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1767534673346</updated>
+    </task>
+    <task id="LOCAL-00132" summary="Creating a Model Overview for the presentation">
+      <option name="closed" value="true" />
+      <created>1767616394146</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1767616394147</updated>
+    </task>
+    <task id="LOCAL-00133" summary="Adding some TODOs">
+      <option name="closed" value="true" />
+      <created>1767625510437</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1767625510438</updated>
+    </task>
+    <task id="LOCAL-00134" summary="Adjusting the whole baseline models for better use cases">
+      <option name="closed" value="true" />
+      <created>1767640174631</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1767640174634</updated>
+    </task>
+    <task id="LOCAL-00135" summary="Changing some names">
+      <option name="closed" value="true" />
+      <created>1767640805120</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1767640805120</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing the dataset" />
-    <MESSAGE value="Train/Test Split and Metrics Functions" />
-    <MESSAGE value="Implementation of base algorithm" />
-    <MESSAGE value="Adding a summary for the baseline" />
-    <MESSAGE value="Add content-based TF-IDF recommender and evaluation" />
     <MESSAGE value="Add Item-Item Co-visitation recommender and evaluation" />
     <MESSAGE value="Add Collaborative Filtering , User-based recommender and evaluation" />
     <MESSAGE value="Add Collaborative Filtering , Item-based recommender and evaluation" />
@@ -542,7 +550,12 @@
     <MESSAGE value="Fixing some issues" />
     <MESSAGE value="Fixing some paths" />
     <MESSAGE value="Adjusting the training using GPU + adding notes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusting the training using GPU + adding notes" />
+    <MESSAGE value="Adding missing things for the uni project" />
+    <MESSAGE value="Creating a Model Overview for the presentation" />
+    <MESSAGE value="Adding some TODOs" />
+    <MESSAGE value="Adjusting the whole baseline models for better use cases" />
+    <MESSAGE value="Changing some names" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changing some names" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -564,7 +577,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb</url>
-          <line>1552</line>
+          <line>1554</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
@@ -599,13 +612,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb</url>
-          <line>1130</line>
+          <line>1132</line>
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb</url>
-          <line>623</line>
+          <line>627</line>
           <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb</url>
+          <line>1625</line>
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
