@@ -4,6 +4,7 @@ import numpy as np
 from xgboost import XGBRanker
 from sklearn.metrics import ndcg_score
 from ..splits import cohort_time_split
+import optuna
 
 
 def _to_relevance_0_31(y_pct):
@@ -71,3 +72,93 @@ class RankerTrainer:
             if y_true.shape[1] >= 2:
                 ndcgs.append(ndcg_score(y_true, y_score, k=min(self.k_eval, y_true.shape[1])))
         return model, {"mean_ndcg@k": float(np.mean(ndcgs)) if ndcgs else float("nan"), "k": int(self.k_eval)}
+
+    def tune(self, ds, n_trials: int = 30, device: str = "cpu", k: int = 10):
+        """
+        Hyperparameter-Tuning für Ranking-Modell.
+        Optimiert mean NDCG@k auf dem Validierungs-Split.
+
+        Hinweis:
+        Gruppenbildung ist entscheidend (z.B. pro cohort_ym).
+        """
+
+        def _xgb_device_kwargs(dev: str):
+            if dev.lower() in ("cuda", "gpu"):
+                return {"tree_method": "gpu_hist", "predictor": "gpu_predictor", "device": "cuda"}
+            return {"tree_method": "hist", "predictor": "auto", "device": "cpu"}
+
+        def build_group_sizes(meta_df):
+            # Gruppengrößen pro cohort_ym, in der Reihenfolge der Zeilen
+            # Wichtig: meta_df muss sortiert/zusammenhängend nach cohort_ym sein
+            counts = meta_df["cohort_ym"].value_counts(sort=False)
+            # aber wir brauchen group sizes in Reihenfolge der appearance:
+            group_sizes = meta_df.groupby("cohort_ym").size().to_list()
+            return group_sizes
+
+        idx_tr, idx_va, _ = cohort_time_split(ds.meta, cohort_col="cohort_ym", n_val=3, n_test=6)
+        Xtr, ytr, mtr = ds.X.iloc[idx_tr], ds.y.iloc[idx_tr], ds.meta.iloc[idx_tr]
+        Xva, yva, mva = ds.X.iloc[idx_va], ds.y.iloc[idx_va], ds.meta.iloc[idx_va]
+
+        # XGBRanker erwartet, dass Gruppen zusammenhängend sind:
+        # Sortiere nach cohort_ym innerhalb train/val
+        tr_order = mtr.sort_values("cohort_ym").index
+        va_order = mva.sort_values("cohort_ym").index
+
+        Xtr, ytr, mtr = ds.X.loc[tr_order], ds.y.loc[tr_order], ds.meta.loc[tr_order]
+        Xva, yva, mva = ds.X.loc[va_order], ds.y.loc[va_order], ds.meta.loc[va_order]
+
+        group_tr = build_group_sizes(mtr)
+        group_va = build_group_sizes(mva)
+
+        def mean_ndcg_at_k(y_true, y_score, groups, k=10):
+            # simple NDCG@k per group
+            import math
+            out = []
+            start = 0
+            for g in groups:
+                yt = y_true[start:start + g]
+                ys = y_score[start:start + g]
+                start += g
+                order = np.argsort(-ys)
+                yt_sorted = np.array(yt)[order][:k]
+                # DCG
+                dcg = 0.0
+                for i, rel in enumerate(yt_sorted, start=1):
+                    dcg += (2 ** rel - 1) / math.log2(i + 1)
+                # IDCG
+                ideal = np.sort(np.array(yt))[-k:][::-1]
+                idcg = 0.0
+                for i, rel in enumerate(ideal, start=1):
+                    idcg += (2 ** rel - 1) / math.log2(i + 1)
+                out.append(dcg / idcg if idcg > 0 else 0.0)
+            return float(np.mean(out)) if out else 0.0
+
+        def objective(trial):
+            params = {
+                "n_estimators": trial.suggest_int("n_estimators", 200, 3000),
+                "learning_rate": trial.suggest_float("learning_rate", 1e-3, 0.2, log=True),
+                "max_depth": trial.suggest_int("max_depth", 3, 10),
+                "subsample": trial.suggest_float("subsample", 0.6, 1.0),
+                "colsample_bytree": trial.suggest_float("colsample_bytree", 0.6, 1.0),
+                "min_child_weight": trial.suggest_float("min_child_weight", 1e-3, 80.0, log=True),
+                "reg_alpha": trial.suggest_float("reg_alpha", 1e-8, 10.0, log=True),
+                "reg_lambda": trial.suggest_float("reg_lambda", 1e-8, 10.0, log=True),
+            }
+
+            ranker = XGBRanker(
+                objective="rank:ndcg",
+                random_state=self.seed,
+                n_jobs=4,
+                **_xgb_device_kwargs(device),
+                **params
+            )
+
+            ranker.fit(Xtr, ytr, group=group_tr, eval_set=[(Xva, yva)], eval_group=[group_va], verbose=False)
+            y_score = ranker.predict(Xva)
+            return mean_ndcg_at_k(yva.values, y_score, group_va, k=k)  # maximize
+
+        study = optuna.create_study(direction="maximize")
+        study.optimize(objective, n_trials=n_trials)
+
+        return {"best_params": study.best_params, "best_val_mean_ndcg@k": float(study.best_value), "k": k,
+                "device": device}

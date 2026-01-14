@@ -39,6 +39,8 @@ class Paths:
     input_targets_path: Path
     raw_dir: Path
     reports_dir_cleaning:Path
+    tuned_models_dir: Path
+    reports_dir_tuned: Path
 
 
 def make_paths(sample_name: str) -> Paths:
@@ -53,6 +55,9 @@ def make_paths(sample_name: str) -> Paths:
     reports_dir = PROJECT_ROOT / "data" / "reports" / "baseline_models" / sample_name
     reports_dir_cleaning = PROJECT_ROOT / "data" / "reports" / "cleaning" / sample_name
 
+    tuned_models_dir = PROJECT_ROOT / "data" / "models" / "tuned" / sample_name
+    reports_dir_tuned = PROJECT_ROOT / "data" / "reports" / "tuned_models" / sample_name
+
     return Paths(
         sample_name=sample_name,
         input_targets_path=input_targets_path,
@@ -63,11 +68,14 @@ def make_paths(sample_name: str) -> Paths:
         modeling_dir=modeling_dir,
         models_dir=models_dir,
         reports_dir=reports_dir,
+        tuned_models_dir=tuned_models_dir,
+        reports_dir_tuned=reports_dir_tuned,
+
     )
 
 
 def ensure_dirs(paths: Paths) -> None:
-    for p in [paths.modeling_dir, paths.reports_dir_cleaning,paths.models_dir, paths.reports_dir, paths.input_targets_path, paths.raw_dir,paths.clean_parquet_dir]:
+    for p in [paths.modeling_dir, paths.reports_dir_cleaning,paths.models_dir, paths.reports_dir, paths.input_targets_path, paths.raw_dir,paths.clean_parquet_dir , paths.clean_csv_dir, paths.tuned_models_dir, paths.reports_dir_tuned ]:
         p.mkdir(parents=True, exist_ok=True)
 
 

@@ -5,6 +5,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import f1_score
+from ..splits import cohort_time_split
+import optuna
 
 """
 Task: Mood/Genre Multi-Label Classification.
@@ -67,3 +69,48 @@ class MoodTrainer:
             "per_label_f1": per_label,
         }
         return clf, metrics, thresholds
+
+    def tune(self, ds, n_trials: int = 30):
+        """
+        Hyperparameter-Tuning für Mood Multi-Label.
+        Optimiert micro-F1 auf dem Validierungs-Split.
+
+        Hinweis:
+        Hier typischerweise CPU (sklearn). GPU bringt i.d.R. nichts.
+        """
+
+
+        idx_tr, idx_va, _ = cohort_time_split(ds.meta, cohort_col="cohort_ym", n_val=3, n_test=6)
+        Xtr, Ytr = ds.X.iloc[idx_tr], ds.y.iloc[idx_tr]
+        Xva, Yva = ds.X.iloc[idx_va], ds.y.iloc[idx_va]
+
+        def objective(trial):
+            alpha = trial.suggest_float("alpha", 1e-6, 1e-2, log=True)
+            loss = trial.suggest_categorical("loss", ["log_loss", "modified_huber"])
+            penalty = trial.suggest_categorical("penalty", ["l2", "l1", "elasticnet"])
+            l1_ratio = 0.15
+            if penalty == "elasticnet":
+                l1_ratio = trial.suggest_float("l1_ratio", 0.05, 0.95)
+
+            base = SGDClassifier(
+                random_state=self.seed,
+                alpha=alpha,
+                loss=loss,
+                penalty=penalty,
+                l1_ratio=l1_ratio if penalty == "elasticnet" else None,
+                max_iter=3000,
+                n_jobs=4,
+            )
+            model = OneVsRestClassifier(base, n_jobs=4)
+            model.fit(Xtr, Ytr)
+
+
+            proba = np.column_stack([est.predict_proba(Xva)[:, 1] for est in model.estimators_])
+            pred = (proba >= 0.5).astype(int)
+
+            return f1_score(Yva.values, pred, average="micro")  # maximize
+
+        study = optuna.create_study(direction="maximize")
+        study.optimize(objective, n_trials=n_trials)
+
+        return {"best_params": study.best_params, "best_val_micro_f1": float(study.best_value)}

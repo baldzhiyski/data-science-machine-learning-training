@@ -2,6 +2,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 from joblib import dump
+from typing import Any, Dict
 
 """
 Reporting & Artefakt-Speicherung.
@@ -30,3 +31,9 @@ def save_json(obj: dict, path: Path):
 def save_joblib(obj, path: Path):
     path.parent.mkdir(parents=True, exist_ok=True)
     dump(obj, path)
+
+
+def save_best_params(best: Dict[str, Any], path: Path):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(best, f, indent=2, ensure_ascii=False)
