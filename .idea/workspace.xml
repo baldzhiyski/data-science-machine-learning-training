@@ -4,22 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Splitting the logic for notebook 3 into three for readability and creating some utils functions for usability + workflow test">
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_targets_and_feature_matrices.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/kmeans.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/paths.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/preprocess.py" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adding a TODO">
+      <change afterPath="$PROJECT_DIR$/uni-course/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tunning_and_robustness.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data_loader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/datasets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/metrics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/reporting.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/splits.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/artist_clustering.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/artist_trajectory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/hit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/moods.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/ranker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_pct.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_residual.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/track_similarity.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_features_targets_and_modeling.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_tuning_and_robustness.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_data_batch_scoring.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_modeling_tables_build.ipynb.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine-learning/linear-regression/linear-regression-scikit-learn.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/linear-regression/linear-regression-scikit-learn.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine-learning/project/ml-project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/project/ml-project.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine-learning/unsupervised-learning/anomaly-detection.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/unsupervised-learning/anomaly-detection.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine-learning/unsupervised-learning/recommendation-systems-algorithms.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/unsupervised-learning/recommendation-systems-algorithms.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/sanityze.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/helper_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +41,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jupyter Notebook" />
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -70,8 +82,14 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/GitHub/data-science/uni-course/spotify-data-project/data/reports/01_schema_overview/slice_000&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.completions.CompletionsConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.inline.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -83,11 +101,11 @@
       <recent name="C:\GitHub\data-science\uni-course\exercises\blatt2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\notebooks\utils" />
+      <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\notebooks\utils\model-training\helpers" />
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\interim\converted_sqlite_samples" />
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\models\before-tunning" />
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\processed" />
-      <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\raw" />
-      <recent name="C:\GitHub\data-science\scikit-learn-course\linear-regression" />
     </key>
   </component>
   <component name="RunManager">
@@ -104,6 +122,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/numpy/filtering.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -122,7 +141,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-a101402ee41c-968fe969f28a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.28238.29" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-PY-252.28539.27" />
+        <option value="bundled-python-sdk-07523f343e4f-968fe969f28a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.28539.27" />
       </set>
     </attachedChunks>
   </component>
@@ -133,22 +153,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760084243851</updated>
-    </task>
-    <task id="LOCAL-00087" summary="Basic Data Analysis">
-      <option name="closed" value="true" />
-      <created>1765225446857</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1765225446857</updated>
-    </task>
-    <task id="LOCAL-00088" summary="Evaluation of Hardcoded model">
-      <option name="closed" value="true" />
-      <created>1765226394030</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1765226394031</updated>
+      <workItem from="1767702066216" duration="665000" />
+      <workItem from="1767702903450" duration="1239000" />
+      <workItem from="1768047275508" duration="11960000" />
+      <workItem from="1768384515834" duration="3767000" />
     </task>
     <task id="LOCAL-00089" summary="Evaluation of Baseline model">
       <option name="closed" value="true" />
@@ -526,12 +534,29 @@
       <option name="project" value="LOCAL" />
       <updated>1767640805120</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="refactor(notebooks): split notebook 03 into 3 parts for readability with the new base models; add reusable utils and workflow test; adjust project paths ; rename old hypertuning  and adding a TODO for it">
+      <option name="closed" value="true" />
+      <created>1767694373888</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1767694373889</updated>
+    </task>
+    <task id="LOCAL-00137" summary="Adding a TODO">
+      <option name="closed" value="true" />
+      <created>1767694384277</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1767694384277</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Item-Item Co-visitation recommender and evaluation" />
-    <MESSAGE value="Add Collaborative Filtering , User-based recommender and evaluation" />
     <MESSAGE value="Add Collaborative Filtering , Item-based recommender and evaluation" />
     <MESSAGE value="Add TF Matrix Factorization  recommender and evaluation with TensorFlow" />
     <MESSAGE value="Add Two-Tower recommendations and evaluation with TensorFlow" />
@@ -555,7 +580,9 @@
     <MESSAGE value="Adding some TODOs" />
     <MESSAGE value="Adjusting the whole baseline models for better use cases" />
     <MESSAGE value="Changing some names" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changing some names" />
+    <MESSAGE value="refactor(notebooks): split notebook 03 into 3 parts for readability with the new base models; add reusable utils and workflow test; adjust project paths ; rename old hypertuning  and adding a TODO for it" />
+    <MESSAGE value="Adding a TODO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding a TODO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -622,8 +649,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb</url>
-          <line>1625</line>
-          <option name="timeStamp" value="59" />
+          <line>230</line>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
