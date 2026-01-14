@@ -98,8 +98,11 @@ class MoodTrainer:
                 loss=loss,
                 penalty=penalty,
                 l1_ratio=l1_ratio if penalty == "elasticnet" else None,
-                max_iter=3000,
-                n_jobs=4,
+                max_iter=2000,
+                tol=1e-3,
+                early_stopping=True,
+                validation_fraction=0.1,
+                n_iter_no_change=5,
             )
             model = OneVsRestClassifier(base, n_jobs=4)
             model.fit(Xtr, Ytr)

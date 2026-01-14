@@ -1,6 +1,6 @@
 from __future__ import annotations
 from dataclasses import dataclass
-
+import numpy as np
 from sklearn.metrics import average_precision_score
 from xgboost import XGBClassifier
 from ..splits import cohort_time_split
@@ -68,11 +68,24 @@ class HitTrainer:
         Optimiert PR-AUC auf dem Validierungs-Split.
         """
 
+        def _xgb_device_kwargs(dev: str | None):
+            dev = (dev or "cpu").lower().strip()
 
-        def _xgb_device_kwargs(dev: str):
-            if dev.lower() in ("cuda", "gpu"):
-                return {"tree_method": "gpu_hist", "predictor": "gpu_predictor", "device": "cuda"}
-            return {"tree_method": "hist", "predictor": "auto", "device": "cpu"}
+            # Accept: "cuda", "gpu", "cuda:0", "cuda:1"
+            if dev == "gpu":
+                dev = "cuda"
+
+            if dev.startswith("cuda"):
+                # Modern XGBoost: device controls both training + prediction placement
+                return {
+                    "tree_method": "hist",
+                    "device": dev,  # "cuda" or "cuda:0"
+                }
+
+            return {
+                "tree_method": "hist",
+                "device": "cpu",
+            }
 
         idx_tr, idx_va, _ = cohort_time_split(ds.meta, cohort_col="cohort_ym", n_val=3, n_test=6)
         Xtr, ytr = ds.X.iloc[idx_tr], ds.y.iloc[idx_tr]
@@ -85,7 +98,7 @@ class HitTrainer:
 
         def objective(trial):
             params = {
-                "n_estimators": trial.suggest_int("n_estimators", 300, 5000),
+                "n_estimators": trial.suggest_int("n_estimators", 500, 8000),
                 "learning_rate": trial.suggest_float("learning_rate", 1e-3, 0.2, log=True),
                 "max_depth": trial.suggest_int("max_depth", 3, 10),
                 "subsample": trial.suggest_float("subsample", 0.6, 1.0),
@@ -100,6 +113,7 @@ class HitTrainer:
             clf = XGBClassifier(
                 random_state=self.seed,
                 n_jobs=4,
+                early_stopping_rounds=100,
                 eval_metric="aucpr",
                 **_xgb_device_kwargs(device),
                 **params

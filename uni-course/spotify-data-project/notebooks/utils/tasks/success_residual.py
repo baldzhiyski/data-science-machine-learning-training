@@ -57,11 +57,24 @@ class SuccessResidualTrainer:
         Optimiert MAE auf dem Validierungs-Split.
         """
 
+        def _xgb_device_kwargs(dev: str | None):
+            dev = (dev or "cpu").lower().strip()
 
-        def _xgb_device_kwargs(dev: str):
-            if dev.lower() in ("cuda", "gpu"):
-                return {"tree_method": "gpu_hist", "predictor": "gpu_predictor", "device": "cuda"}
-            return {"tree_method": "hist", "predictor": "auto", "device": "cpu"}
+            # Accept: "cuda", "gpu", "cuda:0", "cuda:1"
+            if dev == "gpu":
+                dev = "cuda"
+
+            if dev.startswith("cuda"):
+                # Modern XGBoost: device controls both training + prediction placement
+                return {
+                    "tree_method": "hist",
+                    "device": dev,  # "cuda" or "cuda:0"
+                }
+
+            return {
+                "tree_method": "hist",
+                "device": "cpu",
+            }
 
         idx_tr, idx_va, _ = cohort_time_split(ds.meta, cohort_col="cohort_ym", n_val=3, n_test=6)
         Xtr, ytr = ds.X.iloc[idx_tr], ds.y.iloc[idx_tr]
@@ -69,20 +82,20 @@ class SuccessResidualTrainer:
 
         def objective(trial):
             params = {
-                "n_estimators": trial.suggest_int("n_estimators", 300, 5000),
-                "learning_rate": trial.suggest_float("learning_rate", 5e-4, 0.15, log=True),
-                "max_depth": trial.suggest_int("max_depth", 2, 8),
-                "subsample": trial.suggest_float("subsample", 0.5, 1.0),
-                "colsample_bytree": trial.suggest_float("colsample_bytree", 0.5, 1.0),
-                "min_child_weight": trial.suggest_float("min_child_weight", 1e-3, 80.0, log=True),
-                "reg_alpha": trial.suggest_float("reg_alpha", 1e-8, 50.0, log=True),
-                "reg_lambda": trial.suggest_float("reg_lambda", 1e-8, 50.0, log=True),
-                "gamma": trial.suggest_float("gamma", 0.0, 10.0),
+                "n_estimators": trial.suggest_int("n_estimators", 500, 8000),
+                "learning_rate": trial.suggest_float("learning_rate", 1e-3, 0.2, log=True),
+                "max_depth": trial.suggest_int("max_depth", 3, 10),
+                "subsample": trial.suggest_float("subsample", 0.6, 1.0),
+                "colsample_bytree": trial.suggest_float("colsample_bytree", 0.6, 1.0),
+                "min_child_weight": trial.suggest_float("min_child_weight", 1e-3, 50.0, log=True),
+                "reg_alpha": trial.suggest_float("reg_alpha", 1e-8, 10.0, log=True),
+                "reg_lambda": trial.suggest_float("reg_lambda", 1e-8, 10.0, log=True),
             }
 
             model = XGBRegressor(
                 random_state=self.seed,
                 n_jobs=4,
+                early_stopping_rounds=100,
                 **_xgb_device_kwargs(device),
                 **params
             )

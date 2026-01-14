@@ -123,10 +123,24 @@ class ArtistTrajectoryTrainer:
         - Breakout (Binary)   -> maximiert PR-AUC auf Val
         """
 
-        def _xgb_device_kwargs(dev: str):
-            if dev.lower() in ("cuda", "gpu"):
-                return {"tree_method": "gpu_hist", "predictor": "gpu_predictor", "device": "cuda"}
-            return {"tree_method": "hist", "predictor": "auto", "device": "cpu"}
+        def _xgb_device_kwargs(dev: str | None):
+            dev = (dev or "cpu").lower().strip()
+
+            # Accept: "cuda", "gpu", "cuda:0", "cuda:1"
+            if dev == "gpu":
+                dev = "cuda"
+
+            if dev.startswith("cuda"):
+                # Modern XGBoost: device controls both training + prediction placement
+                return {
+                    "tree_method": "hist",
+                    "device": dev,  # "cuda" or "cuda:0"
+                }
+
+            return {
+                "tree_method": "hist",
+                "device": "cpu",
+            }
 
         # Du nutzt bei dir: release_month_ts, y_growth, y_breakout
         time_col, growth_col, breakout_col = "release_month_ts", "y_growth", "y_breakout"
@@ -154,7 +168,7 @@ class ArtistTrajectoryTrainer:
         # --- Growth objective (min MAE)
         def obj_growth(trial):
             params = {
-                "n_estimators": trial.suggest_int("n_estimators", 200, 4000),
+                "n_estimators": trial.suggest_int("n_estimators", 400, 8000),
                 "learning_rate": trial.suggest_float("learning_rate", 1e-3, 0.2, log=True),
                 "max_depth": trial.suggest_int("max_depth", 2, 8),
                 "subsample": trial.suggest_float("subsample", 0.6, 1.0),
@@ -163,7 +177,7 @@ class ArtistTrajectoryTrainer:
                 "reg_alpha": trial.suggest_float("reg_alpha", 1e-8, 10.0, log=True),
                 "reg_lambda": trial.suggest_float("reg_lambda", 1e-8, 10.0, log=True),
             }
-            reg = XGBRegressor(random_state=self.seed, n_jobs=4, **_xgb_device_kwargs(device), **params)
+            reg = XGBRegressor(random_state=self.seed, n_jobs=4, early_stopping_rounds=100, **_xgb_device_kwargs(device), **params)
             reg.fit(Xtr, ytr_g, eval_set=[(Xva, yva_g)], verbose=False)
             pred = reg.predict(Xva)
             return regression_metrics(yva_g, pred)["MAE"]
@@ -171,7 +185,7 @@ class ArtistTrajectoryTrainer:
         # --- Breakout objective (max PR-AUC)
         def obj_breakout(trial):
             params = {
-                "n_estimators": trial.suggest_int("n_estimators", 200, 4000),
+                "n_estimators": trial.suggest_int("n_estimators", 400, 8000),
                 "learning_rate": trial.suggest_float("learning_rate", 1e-3, 0.2, log=True),
                 "max_depth": trial.suggest_int("max_depth", 2, 8),
                 "subsample": trial.suggest_float("subsample", 0.6, 1.0),
@@ -182,7 +196,7 @@ class ArtistTrajectoryTrainer:
                 "gamma": trial.suggest_float("gamma", 0.0, 10.0),
             }
             clf = XGBClassifier(
-                random_state=self.seed, n_jobs=4, eval_metric="aucpr",
+                random_state=self.seed, n_jobs=4, eval_metric="aucpr",early_stopping_rounds=100,
                 **_xgb_device_kwargs(device), **params
             )
             clf.fit(Xtr, ytr_b, eval_set=[(Xva, yva_b)], verbose=False)

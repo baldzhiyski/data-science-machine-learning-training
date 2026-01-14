@@ -4,34 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adding a TODO">
-      <change afterPath="$PROJECT_DIR$/uni-course/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tunning_and_robustness.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data_loader.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/datasets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/metrics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/reporting.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/splits.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/artist_clustering.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/artist_trajectory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/hit.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/moods.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/ranker.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_pct.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_residual.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/track_similarity.py" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Implementing tuning functions">
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/linear-regression/linear-regression-scikit-learn.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/linear-regression/linear-regression-scikit-learn.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/project/ml-project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/project/ml-project.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/unsupervised-learning/anomaly-detection.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/unsupervised-learning/anomaly-detection.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/unsupervised-learning/recommendation-systems-algorithms.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/unsupervised-learning/recommendation-systems-algorithms.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tunning_and_robustness.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/artist_trajectory.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/artist_trajectory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/hit.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/hit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/moods.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/moods.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/ranker.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/ranker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_pct.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_pct.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_residual.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_residual.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,23 +139,7 @@
       <workItem from="1767702066216" duration="665000" />
       <workItem from="1767702903450" duration="1239000" />
       <workItem from="1768047275508" duration="11960000" />
-      <workItem from="1768384515834" duration="3767000" />
-    </task>
-    <task id="LOCAL-00089" summary="Evaluation of Baseline model">
-      <option name="closed" value="true" />
-      <created>1765226689037</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1765226689037</updated>
-    </task>
-    <task id="LOCAL-00090" summary="Testing with Ridge Model">
-      <option name="closed" value="true" />
-      <created>1765228685335</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1765228685335</updated>
+      <workItem from="1768384515834" duration="21321000" />
     </task>
     <task id="LOCAL-00091" summary="Testing with Rdom Forest">
       <option name="closed" value="true" />
@@ -550,15 +517,29 @@
       <option name="project" value="LOCAL" />
       <updated>1767694384277</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="Creating helper files and splitting the logic for the base models">
+      <option name="closed" value="true" />
+      <created>1768388426683</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1768388426684</updated>
+    </task>
+    <task id="LOCAL-00139" summary="Implementing tuning functions">
+      <option name="closed" value="true" />
+      <created>1768391990153</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1768391990154</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Collaborative Filtering , Item-based recommender and evaluation" />
-    <MESSAGE value="Add TF Matrix Factorization  recommender and evaluation with TensorFlow" />
     <MESSAGE value="Add Two-Tower recommendations and evaluation with TensorFlow" />
     <MESSAGE value="Running test for a new user" />
     <MESSAGE value="Initial Commit + Helper Functions" />
@@ -582,7 +563,9 @@
     <MESSAGE value="Changing some names" />
     <MESSAGE value="refactor(notebooks): split notebook 03 into 3 parts for readability with the new base models; add reusable utils and workflow test; adjust project paths ; rename old hypertuning  and adding a TODO for it" />
     <MESSAGE value="Adding a TODO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding a TODO" />
+    <MESSAGE value="Creating helper files and splitting the logic for the base models" />
+    <MESSAGE value="Implementing tuning functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing tuning functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
