@@ -1,7 +1,7 @@
 # utils/config.py
 from typing import List,Tuple
 
-RANDOM_SEED = 42
+RANDOM_SEED = 12
 
 MAIN_ALBUM_STRATEGY = "earliest_release"
 

@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Implementing tuning functions">
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adding notebook for tuning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tunning_and_robustness.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/artist_trajectory.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/artist_trajectory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/hit.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/hit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/moods.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/moods.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/ranker.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/ranker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_pct.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_pct.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_residual.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_residual.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/track_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/track_similarity.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,15 +138,8 @@
       <workItem from="1767702066216" duration="665000" />
       <workItem from="1767702903450" duration="1239000" />
       <workItem from="1768047275508" duration="11960000" />
-      <workItem from="1768384515834" duration="21321000" />
-    </task>
-    <task id="LOCAL-00091" summary="Testing with Rdom Forest">
-      <option name="closed" value="true" />
-      <created>1765229026641</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1765229026642</updated>
+      <workItem from="1768384515834" duration="21340000" />
+      <workItem from="1768636091904" duration="16992000" />
     </task>
     <task id="LOCAL-00092" summary="Testing with Gradient Boosting">
       <option name="closed" value="true" />
@@ -533,14 +525,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768391990154</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="Adding notebook for tuning">
+      <option name="closed" value="true" />
+      <created>1768406924711</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1768406924711</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Two-Tower recommendations and evaluation with TensorFlow" />
     <MESSAGE value="Running test for a new user" />
     <MESSAGE value="Initial Commit + Helper Functions" />
     <MESSAGE value="Data Creation + Split" />
@@ -565,7 +564,8 @@
     <MESSAGE value="Adding a TODO" />
     <MESSAGE value="Creating helper files and splitting the logic for the base models" />
     <MESSAGE value="Implementing tuning functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing tuning functions" />
+    <MESSAGE value="Adding notebook for tuning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding notebook for tuning" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

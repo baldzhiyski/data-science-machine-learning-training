@@ -55,5 +55,5 @@ class TrackSimilarityRunner:
         order = np.argsort(-sims)
         out = []
         for j in order[1:top_k+1]:
-            out.append((str(track_index[j]), float(sims[j])))
+            out.append((track_index[j], float(sims[j])))
         return out
