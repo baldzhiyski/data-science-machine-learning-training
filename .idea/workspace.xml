@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Fixes of the tuning">
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/pipelines/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/run_pipeline.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/saved_models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/ingest_data.py" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Init the MLOps project 1 and adding first step - data ingestion">
+      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/pipelines/training_pipeline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/clean_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/evaluate_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/train_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/run_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/run_pipeline.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +57,7 @@
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.filtering.executor": "Run",
+    "Python.run_pipeline.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -90,7 +89,7 @@
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\processed" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.run_pipeline">
     <configuration name="filtering" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="data-science" />
       <option name="ENV_FILES" value="" />
@@ -114,8 +113,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="run_pipeline" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="data-science" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/machine-learning/ml-ops/project-1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/machine-learning/ml-ops/project-1/run_pipeline.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.run_pipeline" />
         <item itemvalue="Python.filtering" />
       </list>
     </recent_temporary>
@@ -141,15 +164,7 @@
       <workItem from="1768384515834" duration="21340000" />
       <workItem from="1768636091904" duration="17914000" />
       <workItem from="1768664214113" duration="5394000" />
-      <workItem from="1768721368941" duration="3970000" />
-    </task>
-    <task id="LOCAL-00093" summary="Some Hypertuning">
-      <option name="closed" value="true" />
-      <created>1765229475268</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1765229475268</updated>
+      <workItem from="1768721368941" duration="5510000" />
     </task>
     <task id="LOCAL-00094" summary="Adjusting the EDA Process">
       <option name="closed" value="true" />
@@ -535,14 +550,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768658188584</updated>
     </task>
-    <option name="localTasksCounter" value="142" />
+    <task id="LOCAL-00142" summary="Init the MLOps project 1 and adding first step - data ingestion">
+      <option name="closed" value="true" />
+      <created>1768725429664</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1768725429666</updated>
+    </task>
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial Commit + Helper Functions" />
     <MESSAGE value="Data Creation + Split" />
     <MESSAGE value="Implementation of Gaussian" />
     <MESSAGE value="Implementation of Isolation Forest Alg" />
@@ -567,7 +589,8 @@
     <MESSAGE value="Implementing tuning functions" />
     <MESSAGE value="Adding notebook for tuning" />
     <MESSAGE value="Fixes of the tuning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes of the tuning" />
+    <MESSAGE value="Init the MLOps project 1 and adding first step - data ingestion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init the MLOps project 1 and adding first step - data ingestion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -639,6 +662,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/data_science$run_pipeline.coverage" NAME="run_pipeline Coverage Results" MODIFIED="1768725907614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/machine-learning/ml-ops/project-1" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
