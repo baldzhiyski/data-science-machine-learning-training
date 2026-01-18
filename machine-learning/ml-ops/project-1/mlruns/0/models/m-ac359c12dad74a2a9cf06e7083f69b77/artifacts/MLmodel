@@ -1,0 +1,37 @@
+artifact_path: file:C:/GitHub/data-science/machine-learning/ml-ops/project-1/mlruns/0/models/m-ac359c12dad74a2a9cf06e7083f69b77/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.11
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+is_signature_from_type_hint: false
+mlflow_version: 3.8.1
+model_id: m-ac359c12dad74a2a9cf06e7083f69b77
+model_size_bytes: 932
+model_uuid: m-ac359c12dad74a2a9cf06e7083f69b77
+prompts: null
+run_id: c2a740c259d54fa79bb8200f3c2c8de9
+signature:
+  inputs: '[{"type": "long", "name": "payment_sequential", "required": true}, {"type":
+    "long", "name": "payment_installments", "required": true}, {"type": "double",
+    "name": "payment_value", "required": true}, {"type": "double", "name": "price",
+    "required": true}, {"type": "double", "name": "freight_value", "required": true},
+    {"type": "double", "name": "product_name_lenght", "required": true}, {"type":
+    "double", "name": "product_description_lenght", "required": true}, {"type": "double",
+    "name": "product_photos_qty", "required": true}, {"type": "double", "name": "product_weight_g",
+    "required": true}, {"type": "double", "name": "product_length_cm", "required":
+    true}, {"type": "double", "name": "product_height_cm", "required": true}, {"type":
+    "double", "name": "product_width_cm", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-01-18 11:18:21.324999'

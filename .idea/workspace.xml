@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adjusting the pipeline">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="fixing the pipeline">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/pipelines/training_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/pipelines/training_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/evaluate_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/evaluate_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/train_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,27 +49,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.filtering.executor": "Run",
-    "Python.run_pipeline.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/GitHub/data-science/machine-learning/ml-ops/project-1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "aDefault",
-    "settings.editor.selected.configurable": "editor.preferences.inline.completion",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.filtering.executor&quot;: &quot;Run&quot;,
+    &quot;Python.run_pipeline.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/data-science/machine-learning/ml-ops/project-1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.inline.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\GitHub\data-science\machine-learning\ml-ops\project-1" />
@@ -161,15 +161,7 @@
       <workItem from="1768384515834" duration="21340000" />
       <workItem from="1768636091904" duration="17914000" />
       <workItem from="1768664214113" duration="5394000" />
-      <workItem from="1768721368941" duration="8863000" />
-    </task>
-    <task id="LOCAL-00099" summary="fix(cleaning): parse all album release_date formats (epoch ms/sec + YYYY/YY-MM/YY-MM-DD) without year filtering">
-      <option name="closed" value="true" />
-      <created>1765729429309</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1765729429309</updated>
+      <workItem from="1768721368941" duration="13313000" />
     </task>
     <task id="LOCAL-00100" summary="feat(pipeline): create reproducible modeling layer (track/album/artist) and save parquet">
       <option name="closed" value="true" />
@@ -555,14 +547,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768729959590</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="fixing the pipeline">
+      <option name="closed" value="true" />
+      <created>1768730798826</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1768730798826</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Folder rename" />
     <MESSAGE value="Reinforcement Learning Intro" />
     <MESSAGE value="Adjustments" />
     <MESSAGE value="Centralized slice-aware configuration, automated data loading via current_sample.json, and refactored EDA notebooks to generate reproducible, file-based reports instead of inline outputs." />
@@ -587,7 +586,8 @@
     <MESSAGE value="Implementing simple lin regression model" />
     <MESSAGE value="Implementing simpel evaluation" />
     <MESSAGE value="Adjusting the pipeline" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusting the pipeline" />
+    <MESSAGE value="fixing the pipeline" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing the pipeline" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
