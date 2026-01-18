@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Creating a simple pipeline">
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/src/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/src/data_cleaning.py" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Implementing data cleaning step">
+      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/src/model_dev.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/clean_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/clean_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/train_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,15 +162,7 @@
       <workItem from="1768384515834" duration="21340000" />
       <workItem from="1768636091904" duration="17914000" />
       <workItem from="1768664214113" duration="5394000" />
-      <workItem from="1768721368941" duration="7072000" />
-    </task>
-    <task id="LOCAL-00095" summary="Adding the second notebook for managing missing values and cleaning techniques">
-      <option name="closed" value="true" />
-      <created>1765722778366</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1765722778366</updated>
+      <workItem from="1768721368941" duration="7763000" />
     </task>
     <task id="LOCAL-00096" summary="Adjustments of first section">
       <option name="closed" value="true" />
@@ -556,14 +548,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768727185750</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="Implementing data cleaning step">
+      <option name="closed" value="true" />
+      <created>1768728594904</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1768728594904</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implementation of Gaussian" />
     <MESSAGE value="Implementation of Isolation Forest Alg" />
     <MESSAGE value="Implementation of LOF" />
     <MESSAGE value="Implementation of Autoencoders" />
@@ -588,7 +587,8 @@
     <MESSAGE value="Fixes of the tuning" />
     <MESSAGE value="Init the MLOps project 1 and adding first step - data ingestion" />
     <MESSAGE value="Creating a simple pipeline" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating a simple pipeline" />
+    <MESSAGE value="Implementing data cleaning step" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing data cleaning step" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
