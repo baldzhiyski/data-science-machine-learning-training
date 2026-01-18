@@ -9,6 +9,6 @@ def training_pipeline(data_path: str):
     """A training pipeline that ingests data, preprocesses it ,
     trains a model, and evaluates the model."""
     data = ingest_data_step(data_path=data_path)
-    cleaned = clean_data_step(data=data)
-    model = train_model_step(cleaned_data=cleaned)
-    evaluate_model_step(model=model, cleaned_data=cleaned)
+    X_train , X_test , y_train , y_test = clean_data_step(data=data)
+    model = train_model_step(X_train=X_train, X_test=X_test, y_train=y_train, y_test=y_test)
+    r2_score , mse = evaluate_model_step(model=model, X_test=X_test, y_test=y_test)
