@@ -43,6 +43,4 @@ class LinearRegressionModel(Model):
 
         model = LinearRegression(**kwargs)
         model.fit(X_train, y_train)
-        self.coefficients = model.coef_
-        logging.info("Model trained successfully with coefficients: %s", self.coefficients)
         return model

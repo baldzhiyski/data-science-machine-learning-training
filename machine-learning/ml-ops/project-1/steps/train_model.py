@@ -25,5 +25,6 @@ def train_model_step(X_train, X_test, y_train, y_test, config: ModelNameConfig) 
         model = model_instance.train(X_train, y_train)
         logging.info("Linear Regression model trained.")
 
+    return model
 
 
