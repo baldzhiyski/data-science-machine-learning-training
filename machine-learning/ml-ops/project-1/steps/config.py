@@ -1,8 +1,5 @@
-from zenml.steps import BaseParameters
+from pydantic import BaseModel
 
-
-class ModelNameConfig(BaseParameters):
-    """Model Configurations"""
-
+class ModelNameConfig(BaseModel):
     model_name: str = "linear_regression"
     fine_tuning: bool = False

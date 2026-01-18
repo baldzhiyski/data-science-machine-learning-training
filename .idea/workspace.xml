@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Implementing simple lin regression model">
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/src/evaluation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/src/model_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/src/model_dev.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/evaluate_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/evaluate_model.py" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adjusting the pipeline">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/pipelines/training_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/pipelines/training_pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/train_model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,23 +161,7 @@
       <workItem from="1768384515834" duration="21340000" />
       <workItem from="1768636091904" duration="17914000" />
       <workItem from="1768664214113" duration="5394000" />
-      <workItem from="1768721368941" duration="8243000" />
-    </task>
-    <task id="LOCAL-00097" summary="Cleaning the dataset">
-      <option name="closed" value="true" />
-      <created>1765725161417</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1765725161417</updated>
-    </task>
-    <task id="LOCAL-00098" summary="Adjusting the names of the notebooks">
-      <option name="closed" value="true" />
-      <created>1765725833977</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1765725833977</updated>
+      <workItem from="1768721368941" duration="8863000" />
     </task>
     <task id="LOCAL-00099" summary="fix(cleaning): parse all album release_date formats (epoch ms/sec + YYYY/YY-MM/YY-MM-DD) without year filtering">
       <option name="closed" value="true" />
@@ -555,15 +539,29 @@
       <option name="project" value="LOCAL" />
       <updated>1768729295806</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="Implementing simpel evaluation">
+      <option name="closed" value="true" />
+      <created>1768729783342</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1768729783342</updated>
+    </task>
+    <task id="LOCAL-00147" summary="Adjusting the pipeline">
+      <option name="closed" value="true" />
+      <created>1768729959590</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1768729959590</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implementation of LOF" />
-    <MESSAGE value="Implementation of Autoencoders" />
     <MESSAGE value="Folder rename" />
     <MESSAGE value="Reinforcement Learning Intro" />
     <MESSAGE value="Adjustments" />
@@ -587,7 +585,9 @@
     <MESSAGE value="Creating a simple pipeline" />
     <MESSAGE value="Implementing data cleaning step" />
     <MESSAGE value="Implementing simple lin regression model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing simple lin regression model" />
+    <MESSAGE value="Implementing simpel evaluation" />
+    <MESSAGE value="Adjusting the pipeline" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusting the pipeline" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -3,7 +3,7 @@ import pandas as pd
 from zenml import step
 from src.model_dev import LinearRegressionModel
 from sklearn.base import RegressorMixin
-from config import  ModelNameConfig
+from .config import  ModelNameConfig
 
 @step
 def train_model_step(X_train, X_test, y_train, y_test, config: ModelNameConfig) -> RegressorMixin:

@@ -2,7 +2,7 @@ import logging
 from typing import Tuple
 
 import pandas as pd
-from sqlalchemy.sql.annotation import Annotated
+from  typing_extensions import Annotated
 from zenml import step
 from src.data_cleaning import DataPreprocessStrategy,DataCleaning,DataDevideStrategy
 

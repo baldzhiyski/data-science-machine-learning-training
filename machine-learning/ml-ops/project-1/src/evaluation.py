@@ -9,7 +9,7 @@ class Evaluation(ABC):
     """
 
     @abstractmethod
-    def calcualte_score(self, y_true, y_pred):
+    def calculate_score(self, y_true, y_pred):
         """
         Calculate the evaluation score.
 
@@ -26,7 +26,7 @@ class RMSE(Evaluation):
     Root Mean Squared Error (RMSE) evaluation metric.
     """
 
-    def calcualte_score(self, y_true, y_pred):
+    def calculate_score(self, y_true, y_pred):
         """
         Calculate the RMSE score.
 
@@ -53,7 +53,7 @@ class R2(Evaluation):
     R-squared (R2) evaluation metric.
     """
 
-    def calcualte_score(self, y_true, y_pred):
+    def calculate_score(self, y_true, y_pred):
         """
         Calculate the R2 score.
 
