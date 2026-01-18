@@ -1,0 +1,23 @@
+2026/01/18 13:38:26 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/01/18 13:38:26 INFO mlflow.store.db.utils: Updating database tables
+2026/01/18 13:38:26 INFO alembic.runtime.migration: Context impl SQLiteImpl.
+2026/01/18 13:38:26 INFO alembic.runtime.migration: Will assume non-transactional DDL.
+2026/01/18 13:38:26 INFO alembic.runtime.migration: Context impl SQLiteImpl.
+2026/01/18 13:38:26 INFO alembic.runtime.migration: Will assume non-transactional DDL.
+C:\GitHub\data-science\.venv\Lib\site-packages\mlflow\tracking\_model_registry\utils.py:216: FutureWarning: The filesystem model registry backend (e.g., './mlruns') will be deprecated in February 2026. Consider transitioning to a database backend (e.g., 'sqlite:///mlflow.db') to take advantage of the latest MLflow features. See https://github.com/mlflow/mlflow/issues/18534 for more details and migration guidance. For migrating existing data, https://github.com/mlflow/mlflow-export-import can be used.
+  return FileStore(store_uri)
+Downloading artifacts:   0%|          | 0/5 [00:00<?, ?it/s]Downloading artifacts:  20%|##        | 1/5 [00:00<?, ?it/s]Downloading artifacts:  40%|####      | 2/5 [00:00<?, ?it/s]Downloading artifacts:  60%|######    | 3/5 [00:00<?, ?it/s]Downloading artifacts:  80%|########  | 4/5 [00:00<?, ?it/s]Downloading artifacts: 100%|##########| 5/5 [00:00<?, ?it/s]Downloading artifacts: 100%|##########| 5/5 [00:00<?, ?it/s]
+2026/01/18 13:38:27 INFO mlflow.models.flavor_backend_registry: Selected backend for flavor 'python_function'
+2026/01/18 13:38:27 INFO mlflow.pyfunc.backend: === Running command 'uvicorn --host 127.0.0.1 --port 5001 --workers 1 mlflow.pyfunc.scoring_server.app:app'
+2026/01/18 13:39:02 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/01/18 13:39:02 INFO mlflow.store.db.utils: Updating database tables
+2026/01/18 13:39:02 INFO alembic.runtime.migration: Context impl SQLiteImpl.
+2026/01/18 13:39:02 INFO alembic.runtime.migration: Will assume non-transactional DDL.
+2026/01/18 13:39:02 INFO alembic.runtime.migration: Context impl SQLiteImpl.
+2026/01/18 13:39:02 INFO alembic.runtime.migration: Will assume non-transactional DDL.
+INFO:     Started server process [13012]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:5001 (Press CTRL+C to quit)
+INFO:     127.0.0.1:54295 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54296 - "POST /invocations HTTP/1.1" 200 OK

@@ -1,0 +1,15 @@
+creation_timestamp: 1768739651902
+current_stage: None
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1768739651902
+model_id: m-67332ecab8eb4dc98110316639ab9ee3
+name: model
+run_id: beaa1acafdd74fc9bd7d5dab063e0218
+run_link: null
+source: models:/m-67332ecab8eb4dc98110316639ab9ee3
+status: READY
+status_message: null
+storage_location: file:C:\Users\user\AppData\Roaming\zenml\local_stores\aa68643f-d2b2-4905-ad8c-454e50091538\mlruns/552303561449469448/models/m-67332ecab8eb4dc98110316639ab9ee3/artifacts
+user_id: null
+version: 1

@@ -1,4 +1,5 @@
 from typing import Tuple
+from typing import cast
 
 import pandas as pd
 import logging
@@ -11,7 +12,7 @@ from sklearn.base import RegressorMixin
 from zenml.client import Client
 experiment_tracker = Client().active_stack.experiment_tracker
 
-@step(experiment_tracker=experiment_tracker)
+@step(experiment_tracker="mlflow_tracker",enable_cache=False)
 def evaluate_model_step(model:RegressorMixin, X_test: pd.DataFrame, y_test: pd.Series) -> Tuple[Annotated[
 float, "R2 Score"], Annotated[float, "MSE Score"]]:
     """
