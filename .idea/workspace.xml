@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Adding notebook for tuning">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Fixes of the tuning">
+      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/pipelines/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/run_pipeline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/saved_models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/ingest_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/hit.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/hit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/moods.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/moods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/ranker.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/ranker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_pct.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_pct.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_residual.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_residual.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/track_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/track_similarity.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -54,33 +54,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.filtering.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/data-science/uni-course/spotify-data-project/data/reports/01_schema_overview/slice_000&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.inline.completion&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.filtering.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/GitHub/data-science/machine-learning/ml-ops/project-1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "editor.preferences.inline.completion",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\GitHub\data-science\machine-learning\ml-ops\project-1" />
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\reports\01_schema_overview\slice_000" />
       <recent name="C:\GitHub\data-science\machine-learning\machine-learning-specialization\notebooks" />
       <recent name="C:\GitHub\data-science\scikit-learn-course\project" />
       <recent name="C:\GitHub\data-science\scikit-learn-course\gradient-boosting-machines" />
-      <recent name="C:\GitHub\data-science\uni-course\exercises\blatt2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\notebooks\utils" />
@@ -139,15 +139,9 @@
       <workItem from="1767702903450" duration="1239000" />
       <workItem from="1768047275508" duration="11960000" />
       <workItem from="1768384515834" duration="21340000" />
-      <workItem from="1768636091904" duration="16992000" />
-    </task>
-    <task id="LOCAL-00092" summary="Testing with Gradient Boosting">
-      <option name="closed" value="true" />
-      <created>1765229142318</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1765229142318</updated>
+      <workItem from="1768636091904" duration="17914000" />
+      <workItem from="1768664214113" duration="5394000" />
+      <workItem from="1768721368941" duration="3970000" />
     </task>
     <task id="LOCAL-00093" summary="Some Hypertuning">
       <option name="closed" value="true" />
@@ -533,14 +527,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768406924711</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="Fixes of the tuning">
+      <option name="closed" value="true" />
+      <created>1768658188584</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1768658188584</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Running test for a new user" />
     <MESSAGE value="Initial Commit + Helper Functions" />
     <MESSAGE value="Data Creation + Split" />
     <MESSAGE value="Implementation of Gaussian" />
@@ -565,7 +566,8 @@
     <MESSAGE value="Creating helper files and splitting the logic for the base models" />
     <MESSAGE value="Implementing tuning functions" />
     <MESSAGE value="Adding notebook for tuning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding notebook for tuning" />
+    <MESSAGE value="Fixes of the tuning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes of the tuning" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
