@@ -156,13 +156,15 @@ def start_mlflow_model_server(config: ServeConfig) -> str:
 @step(enable_cache=False)
 def predictor(server_url: str, raw_json: str) -> np.ndarray:
     df = json_payload_to_dataframe(raw_json)
-
-    # MLflow pyfunc serving expects {"dataframe_split": {...}}
     payload = {"dataframe_split": df.to_dict(orient="split")}
 
     r = requests.post(f"{server_url}/invocations", json=payload, timeout=30)
     r.raise_for_status()
-    return np.array(r.json())
+
+    preds = np.array(r.json())
+    preds = np.atleast_1d(preds)   # <-- key fix
+    return preds
+
 
 
 # ----------------------------

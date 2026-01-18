@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Implementing a tracker with MlFlow">
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/materializer/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/materializer/custom_materializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/pipelines/deployment_pipeline.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/run_deployment_pipeline.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/utils.py" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Deployment pipeline impl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/.zen/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/.zen/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/mlruns/0/c2a740c259d54fa79bb8200f3c2c8de9/artifacts/estimator.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/mlruns/0/models/m-ac359c12dad74a2a9cf06e7083f69b77/artifacts/MLmodel" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/mlruns/0/models/m-ac359c12dad74a2a9cf06e7083f69b77/artifacts/conda.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/mlruns/0/models/m-ac359c12dad74a2a9cf06e7083f69b77/artifacts/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/mlruns/0/models/m-ac359c12dad74a2a9cf06e7083f69b77/artifacts/python_env.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/mlruns/0/models/m-ac359c12dad74a2a9cf06e7083f69b77/artifacts/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/evaluate_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/evaluate_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/steps/train_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/mlflow.db" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/mlflow.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/mlflow_serve.log" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/mlflow_serve.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/pipelines/deployment_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/ml-ops/project-1/pipelines/deployment_pipeline.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +21,17 @@
         <option value="Jupyter Notebook" />
         <option value="Python Script" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
@@ -60,27 +60,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.filtering.executor&quot;: &quot;Run&quot;,
-    &quot;Python.run_pipeline.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/data-science/machine-learning/ml-ops/project-1&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.inline.completion&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.filtering.executor": "Run",
+    "Python.run_pipeline.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/GitHub/data-science/machine-learning/ml-ops/project-1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "terminal",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\GitHub\data-science\machine-learning\ml-ops\project-1" />
@@ -172,15 +172,7 @@
       <workItem from="1768384515834" duration="21340000" />
       <workItem from="1768636091904" duration="17914000" />
       <workItem from="1768664214113" duration="5394000" />
-      <workItem from="1768721368941" duration="18249000" />
-    </task>
-    <task id="LOCAL-00101" summary="Issue fixes">
-      <option name="closed" value="true" />
-      <created>1766421250943</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1766421250943</updated>
+      <workItem from="1768721368941" duration="20579000" />
     </task>
     <task id="LOCAL-00102" summary="feat(training) : Adjusting the models">
       <option name="closed" value="true" />
@@ -566,14 +558,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768735276591</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="Deployment pipeline impl">
+      <option name="closed" value="true" />
+      <created>1768740225229</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1768740225229</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adjustments" />
     <MESSAGE value="Centralized slice-aware configuration, automated data loading via current_sample.json, and refactored EDA notebooks to generate reproducible, file-based reports instead of inline outputs." />
     <MESSAGE value="Adjusting the paths" />
     <MESSAGE value="Fixing some issues" />
@@ -598,7 +597,8 @@
     <MESSAGE value="Adjusting the pipeline" />
     <MESSAGE value="fixing the pipeline" />
     <MESSAGE value="Implementing a tracker with MlFlow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing a tracker with MlFlow" />
+    <MESSAGE value="Deployment pipeline impl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deployment pipeline impl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

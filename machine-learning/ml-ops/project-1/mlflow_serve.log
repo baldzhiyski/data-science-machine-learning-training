@@ -21,3 +21,7 @@ INFO:     Application startup complete.
 INFO:     Uvicorn running on http://127.0.0.1:5001 (Press CTRL+C to quit)
 INFO:     127.0.0.1:54295 - "GET / HTTP/1.1" 404 Not Found
 INFO:     127.0.0.1:54296 - "POST /invocations HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\GitHub\data-science\.venv\Scripts\mlflow.exe\__main__.py", line 10, in <module>
