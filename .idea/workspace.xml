@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="fixes">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" afterDir="false" />
     </list>
@@ -171,15 +171,7 @@
       <workItem from="1768636091904" duration="17914000" />
       <workItem from="1768664214113" duration="5394000" />
       <workItem from="1768721368941" duration="20595000" />
-      <workItem from="1768814027891" duration="6301000" />
-    </task>
-    <task id="LOCAL-00103" summary="feat(hypertuning) :Adjusting 3rd notebook and implemnting a hypertuning notebook">
-      <option name="closed" value="true" />
-      <created>1766508684110</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1766508684112</updated>
+      <workItem from="1768814027891" duration="8557000" />
     </task>
     <task id="LOCAL-00104" summary="Some more tuning">
       <option name="closed" value="true" />
@@ -565,14 +557,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768742477789</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="fix">
+      <option name="closed" value="true" />
+      <created>1768821596702</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1768821596702</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adjusting the paths" />
     <MESSAGE value="Fixing some issues" />
     <MESSAGE value="Fixing some paths" />
     <MESSAGE value="Adjusting the training using GPU + adding notes" />
@@ -597,7 +596,8 @@
     <MESSAGE value="Implementing a tracker with MlFlow" />
     <MESSAGE value="Deployment pipeline impl" />
     <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
