@@ -1,5 +1,8 @@
+import ast
+import json
 from typing import Optional
 
+import numpy as np
 import pandas as pd
 #%%
 def parse_datetime_from_candidates(df: pd.DataFrame, candidates: list[str], out_col: str) -> pd.DataFrame:
@@ -118,3 +121,53 @@ def ensure_list_column(s: pd.Series) -> pd.Series:
         return []
 
     return s.apply(parse_one)
+
+def parse_release_date_universal(s: pd.Series) -> pd.Series:
+    """
+    Universal release_date parser that parses EVERYTHING it reasonably can.
+
+    Supports:
+      - Spotify date strings: "YYYY", "YYYY-MM", "YYYY-MM-DD"
+      - Epoch timestamps (string or numeric), incl. negative and old:
+          * >= 11 digits  -> milliseconds
+          * 9-10 digits   -> seconds
+      - 0 treated as missing (NaT) to avoid fake 1970-01-01
+
+    Returns:
+      datetime64[ns] Series with NaT for unparseable values.
+    """
+    x = s.astype("string").str.strip()
+    x = x.replace({"": pd.NA, "nan": pd.NA, "none": pd.NA, "null": pd.NA})
+
+    out = pd.Series(pd.NaT, index=x.index, dtype="datetime64[ns]")
+
+    # ---------- numeric epoch parsing ----------
+    num = pd.to_numeric(x, errors="coerce")
+
+    # treat 0 as missing (placeholder -> avoids 1970-01-01 pollution)
+    num = num.mask(num == 0)
+
+    # integer coercion
+    num_int = pd.Series(pd.NA, index=x.index, dtype="Int64")
+    mask_num = num.notna()
+    if mask_num.any():
+        num_int.loc[mask_num] = np.floor(num.loc[mask_num].astype("float64")).astype("int64")
+
+    # digit-length heuristic (works for old/negative ms values too)
+    digits = num_int.abs().astype("string").str.len()
+    ms_mask = num_int.notna() & (digits >= 11)          # milliseconds
+    s_mask  = num_int.notna() & digits.between(9, 10)   # seconds
+
+    out.loc[ms_mask] = pd.to_datetime(num_int.loc[ms_mask].astype("int64"), unit="ms", errors="coerce")
+    out.loc[s_mask]  = pd.to_datetime(num_int.loc[s_mask].astype("int64"), unit="s", errors="coerce")
+
+    # ---------- spotify-like string parsing ----------
+    rest = out.isna() & x.notna()
+
+    txt = x.copy()
+    txt = txt.where(~txt.str.fullmatch(r"\d{4}"), txt + "-01-01")
+    txt = txt.where(~txt.str.fullmatch(r"\d{4}-\d{2}"), txt + "-01")
+
+    out.loc[rest] = pd.to_datetime(txt.loc[rest], errors="coerce")
+
+    return out

@@ -4,48 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Final trials for most sufficient results">
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/parsing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/sklearn_compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/evaluation/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/features/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/features/multihot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/features/numeric_transform.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/features/text_features.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/features/time_features.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/reporting/__init__.py" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Splitting the helper functions and creating some folders">
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/Project-Intro.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/analyzer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/checker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/sqlite_sampler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/sqlite_schema.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/eda/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/eda/outliers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/eda/plots.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine-learning/unsupervised-learning/anomaly-detection.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/unsupervised-learning/anomaly-detection.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_modeling_tables_build.ipynb.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_modeling_tables_build.ipynb.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_targets_and_feature_matrices.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_targets_and_feature_matrices.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/training_data_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/datasets.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/datasets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/helper_functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/kmeans.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/evaluation/metrics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/core/paths.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/reporting.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/reporting/reporting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/splits.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/splits.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/Project-Intro.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/artist_clustering.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/artist_clustering.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/artist_trajectory.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/artist_trajectory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/hit.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/hit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/moods.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/moods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/ranker.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/ranker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_pct.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/success_pct.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/success_residual.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/success_residual.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/tasks/track_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/track_similarity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/core/paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/core/paths.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/parsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/parsing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,27 +69,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.filtering.executor&quot;: &quot;Run&quot;,
-    &quot;Python.run_pipeline.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/data-science/uni-course/exercises/blatt7&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.filtering.executor": "Run",
+    "Python.run_pipeline.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/GitHub/data-science/uni-course/exercises/blatt7",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "com.github.copilot.settings.customization.CustomizationConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\GitHub\data-science\uni-course\exercises\blatt7" />
@@ -211,15 +183,8 @@
       <workItem from="1768664214113" duration="5394000" />
       <workItem from="1768721368941" duration="20595000" />
       <workItem from="1768814027891" duration="19598000" />
-      <workItem from="1769185034486" duration="4931000" />
-    </task>
-    <task id="LOCAL-00105" summary="Creating the notebook and the demo dataset">
-      <option name="closed" value="true" />
-      <created>1767094243550</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1767094243550</updated>
+      <workItem from="1769185034486" duration="17916000" />
+      <workItem from="1769269936292" duration="2036000" />
     </task>
     <task id="LOCAL-00106" summary="Fixing the dataset">
       <option name="closed" value="true" />
@@ -605,14 +570,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768824204632</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="Splitting the helper functions and creating some folders">
+      <option name="closed" value="true" />
+      <created>1769246060909</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1769246060910</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing some paths" />
     <MESSAGE value="Adjusting the training using GPU + adding notes" />
     <MESSAGE value="Adding missing things for the uni project" />
     <MESSAGE value="Creating a Model Overview for the presentation" />
@@ -637,7 +609,8 @@
     <MESSAGE value="fixes" />
     <MESSAGE value="fix" />
     <MESSAGE value="Final trials for most sufficient results" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final trials for most sufficient results" />
+    <MESSAGE value="Splitting the helper functions and creating some folders" />
+    <option name="LAST_COMMIT_MESSAGE" value="Splitting the helper functions and creating some folders" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -656,11 +629,6 @@
           <url>file://$PROJECT_DIR$/scikit-learn-course/logistic-regression/logistic-regression-lesson.ipynb</url>
           <line>332</line>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
-          <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb</url>
-          <line>1554</line>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>file://$PROJECT_DIR$/scikit-learn-course/desicion-trees-random-forest/decision-tree-forest.ipynb</url>
@@ -693,19 +661,14 @@
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
-          <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb</url>
-          <line>1132</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
-          <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb</url>
-          <line>627</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb</url>
           <line>231</line>
           <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb</url>
+          <line>913</line>
+          <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/parsing.py</url>

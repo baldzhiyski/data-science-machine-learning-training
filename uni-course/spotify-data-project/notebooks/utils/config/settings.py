@@ -1,4 +1,5 @@
 # utils/settings.py
+from dataclasses import dataclass
 from typing import List,Tuple
 
 RANDOM_SEED = 12
