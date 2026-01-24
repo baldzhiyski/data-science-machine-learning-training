@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="docs: polish EDA notebook structure and scientific markdown">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="feat: add core cleaning utilities and initial implementation for data cleaning pipeline">
       <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/Project-Intro.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/cleaning/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/cleaning/core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -176,15 +173,7 @@
       <workItem from="1768721368941" duration="20595000" />
       <workItem from="1768814027891" duration="19598000" />
       <workItem from="1769185034486" duration="17916000" />
-      <workItem from="1769269936292" duration="7285000" />
-    </task>
-    <task id="LOCAL-00107" summary="Train/Test Split and Metrics Functions">
-      <option name="closed" value="true" />
-      <created>1767096686574</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1767096686574</updated>
+      <workItem from="1769269936292" duration="7595000" />
     </task>
     <task id="LOCAL-00108" summary="Implementation of base algorithm">
       <option name="closed" value="true" />
@@ -570,14 +559,21 @@
       <option name="project" value="LOCAL" />
       <updated>1769272021548</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="feat: add core cleaning utilities and initial implementation for data cleaning pipeline">
+      <option name="closed" value="true" />
+      <created>1769292179943</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1769292179943</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding missing things for the uni project" />
     <MESSAGE value="Creating a Model Overview for the presentation" />
     <MESSAGE value="Adding some TODOs" />
     <MESSAGE value="Adjusting the whole baseline models for better use cases" />
@@ -602,7 +598,8 @@
     <MESSAGE value="Final trials for most sufficient results" />
     <MESSAGE value="Splitting the helper functions and creating some folders" />
     <MESSAGE value="docs: polish EDA notebook structure and scientific markdown" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: polish EDA notebook structure and scientific markdown" />
+    <MESSAGE value="feat: add core cleaning utilities and initial implementation for data cleaning pipeline" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add core cleaning utilities and initial implementation for data cleaning pipeline" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
