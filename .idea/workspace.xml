@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="Splitting the helper functions and creating some folders">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="docs: polish EDA notebook structure and scientific markdown">
       <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/Project-Intro.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/analyzer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/checker.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/sqlite_sampler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/sqlite_schema.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/eda/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/eda/outliers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/eda/plots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/cleaning/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/cleaning/core.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/core/paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/core/paths.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/parsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/parsing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,15 +176,7 @@
       <workItem from="1768721368941" duration="20595000" />
       <workItem from="1768814027891" duration="19598000" />
       <workItem from="1769185034486" duration="17916000" />
-      <workItem from="1769269936292" duration="2036000" />
-    </task>
-    <task id="LOCAL-00106" summary="Fixing the dataset">
-      <option name="closed" value="true" />
-      <created>1767094639929</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1767094639929</updated>
+      <workItem from="1769269936292" duration="7285000" />
     </task>
     <task id="LOCAL-00107" summary="Train/Test Split and Metrics Functions">
       <option name="closed" value="true" />
@@ -578,14 +562,21 @@
       <option name="project" value="LOCAL" />
       <updated>1769246060910</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="docs: polish EDA notebook structure and scientific markdown">
+      <option name="closed" value="true" />
+      <created>1769272021548</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1769272021548</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adjusting the training using GPU + adding notes" />
     <MESSAGE value="Adding missing things for the uni project" />
     <MESSAGE value="Creating a Model Overview for the presentation" />
     <MESSAGE value="Adding some TODOs" />
@@ -610,7 +601,8 @@
     <MESSAGE value="fix" />
     <MESSAGE value="Final trials for most sufficient results" />
     <MESSAGE value="Splitting the helper functions and creating some folders" />
-    <option name="LAST_COMMIT_MESSAGE" value="Splitting the helper functions and creating some folders" />
+    <MESSAGE value="docs: polish EDA notebook structure and scientific markdown" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: polish EDA notebook structure and scientific markdown" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
