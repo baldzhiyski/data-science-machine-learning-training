@@ -7,8 +7,11 @@
   Explore additional features or data sources that could enhance the analysis.
   Implement more sophisticated statistical tests or models to gain deeper insights.
 
-- **Model evaluation**  
-  Try new feature sets and evaluate different clustering algorithms to improve performance.
+- **Model evaluation and Feature Engineering**  
+  Try new feature sets 
+
+- **Add visuals from what we learned from the data**
+    Create additional visualizations to illustrate key findings and insights from the data analysis.
 
 - **Documentation and reporting**
    Create a full documentation of methods, results, and insights gained from the clustering analysis.

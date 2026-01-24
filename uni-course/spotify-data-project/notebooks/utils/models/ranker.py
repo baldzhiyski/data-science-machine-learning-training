@@ -4,7 +4,6 @@ import numpy as np
 from xgboost import XGBRanker
 from sklearn.metrics import ndcg_score
 from ..splits import cohort_time_split
-import optuna
 
 
 def _to_relevance_0_31(y_pct):

@@ -1,4 +1,4 @@
-# utils/config.py
+# utils/settings.py
 from typing import List,Tuple
 
 RANDOM_SEED = 12

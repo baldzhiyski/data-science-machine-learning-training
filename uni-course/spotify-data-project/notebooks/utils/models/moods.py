@@ -6,7 +6,6 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import f1_score
 from ..splits import cohort_time_split
-import optuna
 
 """
 Task: Mood/Genre Multi-Label Classification.
