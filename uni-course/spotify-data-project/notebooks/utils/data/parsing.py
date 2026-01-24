@@ -1,9 +1,43 @@
 import ast
 import json
+import re
 from typing import Optional
 
 import numpy as np
 import pandas as pd
+
+
+def safe_len_series(s: pd.Series) -> pd.Series:
+    """
+    Robust length of strings (characters).
+    - NaN -> 0
+    - non-strings -> cast to string
+    Returns int32 Series.
+    """
+    if s is None:
+        return pd.Series(dtype="int32")
+
+    s2 = s.astype("string")  # keeps <NA>
+    # <NA> -> "" then len
+    out = s2.fillna("").map(len)
+    return out.astype("int32")
+
+
+_WORD_RE = re.compile(r"\S+")
+
+def safe_word_count_series(s: pd.Series) -> pd.Series:
+    """
+    Robust word count.
+    - Words = sequences of non-whitespace (regex \\S+)
+    - NaN -> 0
+    Returns int32 Series.
+    """
+    if s is None:
+        return pd.Series(dtype="int32")
+
+    s2 = s.astype("string").fillna("")
+    out = s2.map(lambda x: len(_WORD_RE.findall(str(x))))
+    return out.astype("int32")
 #%%
 def parse_datetime_from_candidates(df: pd.DataFrame, candidates: list[str], out_col: str) -> pd.DataFrame:
     """

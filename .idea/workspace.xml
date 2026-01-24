@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="feat: add core cleaning utilities and initial implementation for data cleaning pipeline">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="bug fix">
       <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/Project-Intro.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/catalog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/datasets_modeling/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/datasets_modeling/album_dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/datasets_modeling/artist_dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/datasets_modeling/track_dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/features/engineering.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine-learning/unsupervised-learning/recommendation-systems-algorithms.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/machine-learning/unsupervised-learning/recommendation-systems-algorithms.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_modeling_tables_build.ipynb.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_modeling_tables_build.ipynb.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/parsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/parsing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/features/numeric_transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/features/numeric_transform.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,27 +69,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.filtering.executor": "Run",
-    "Python.run_pipeline.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/GitHub/data-science/uni-course/exercises/blatt7",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "aDefault",
-    "settings.editor.selected.configurable": "com.github.copilot.settings.customization.CustomizationConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.filtering.executor&quot;: &quot;Run&quot;,
+    &quot;Python.run_pipeline.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/data-science/uni-course/exercises/blatt7&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.customization.CustomizationConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\GitHub\data-science\uni-course\exercises\blatt7" />
@@ -173,15 +184,8 @@
       <workItem from="1768721368941" duration="20595000" />
       <workItem from="1768814027891" duration="19598000" />
       <workItem from="1769185034486" duration="17916000" />
-      <workItem from="1769269936292" duration="7595000" />
-    </task>
-    <task id="LOCAL-00108" summary="Implementation of base algorithm">
-      <option name="closed" value="true" />
-      <created>1767097111242</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1767097111242</updated>
+      <workItem from="1769269936292" duration="12717000" />
+      <workItem from="1769298026040" duration="339000" />
     </task>
     <task id="LOCAL-00109" summary="Adding a summary for the baseline">
       <option name="closed" value="true" />
@@ -567,14 +571,21 @@
       <option name="project" value="LOCAL" />
       <updated>1769292179943</updated>
     </task>
-    <option name="localTasksCounter" value="157" />
+    <task id="LOCAL-00157" summary="bug fix">
+      <option name="closed" value="true" />
+      <created>1769292293674</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1769292293674</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creating a Model Overview for the presentation" />
     <MESSAGE value="Adding some TODOs" />
     <MESSAGE value="Adjusting the whole baseline models for better use cases" />
     <MESSAGE value="Changing some names" />
@@ -599,7 +610,8 @@
     <MESSAGE value="Splitting the helper functions and creating some folders" />
     <MESSAGE value="docs: polish EDA notebook structure and scientific markdown" />
     <MESSAGE value="feat: add core cleaning utilities and initial implementation for data cleaning pipeline" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add core cleaning utilities and initial implementation for data cleaning pipeline" />
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -658,6 +670,11 @@
           <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb</url>
           <line>913</line>
           <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_modeling_tables_build.ipynb.ipynb</url>
+          <line>26</line>
+          <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/parsing.py</url>

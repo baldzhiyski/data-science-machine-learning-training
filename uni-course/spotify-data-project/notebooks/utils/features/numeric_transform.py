@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 
 def log1p_numeric(s: pd.Series) -> pd.Series:
