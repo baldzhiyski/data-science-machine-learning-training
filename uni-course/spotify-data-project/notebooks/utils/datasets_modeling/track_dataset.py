@@ -66,9 +66,6 @@ class TrackDatasetBuilder:
         # --- 3) album metadata join ---
         track_df = self._join_album_metadata(track_df, albums)
 
-        # --- 4) master release date + time features ---
-        track_df = self._build_master_release_date(track_df)
-
         # --- 5) artist aggregations ---
         artist_agg = self._aggregate_artists_per_track(rta, artists)
         track_df = track_df.merge(artist_agg, on="track_id", how="left")
@@ -138,33 +135,55 @@ class TrackDatasetBuilder:
         return rat2.drop_duplicates("track_id", keep="first")[["track_id", "album_id"]]
 
     def _join_album_metadata(self, track_df: pd.DataFrame, albums: pd.DataFrame) -> pd.DataFrame:
-        if albums.empty or "album_id" not in track_df.columns:
+        if albums.empty or track_df.empty or "album_id" not in track_df.columns:
             return track_df
 
-        albums_join = albums.copy()
-        if "album_id" not in albums_join.columns and "id" in albums_join.columns:
-            albums_join = albums_join.rename(columns={"id": "album_id"})
+        out = track_df.copy()
 
-        # Kollisionsschutz
+        # ensure the final date comes ONLY from album (avoid merge suffix confusion)
+        if "release_date_parsed" in out.columns:
+            out = out.drop(columns=["release_date_parsed"])
+
+        albums_join = albums.copy()
+
+        # ensure join key
+        if "album_id" not in albums_join.columns:
+            if "id" in albums_join.columns:
+                albums_join = albums_join.rename(columns={"id": "album_id"})
+            else:
+                return out
+
+        # optional collision protection for other columns
         if "popularity" in albums_join.columns:
             albums_join = albums_join.rename(columns={"popularity": "album_popularity"})
         if "release_date" in albums_join.columns:
             albums_join = albums_join.rename(columns={"release_date": "album_release_date_raw"})
 
-        return track_df.merge(albums_join, on="album_id", how="left", suffixes=("", "_album"))
+        # ---- build release_date_parsed (album truth)
+        if "release_date_parsed" in albums_join.columns:
+            albums_join["release_date_parsed"] = pd.to_datetime(albums_join["release_date_parsed"], errors="coerce")
+        else:
+            albums_join["release_date_parsed"] = pd.NaT
 
-    def _build_master_release_date(self, df: pd.DataFrame) -> pd.DataFrame:
-        df = df.copy()
-        # Prefer album date, fallback to track date
-        a = col_or_na(df, "album_release_date_parsed").replace("", pd.NA)
-        b = col_or_na(df, "track_release_date_parsed").replace("", pd.NA)
+        # keep only needed album columns
+        keep_cols = ["album_id", "release_date_parsed"]
+        if "album_popularity" in albums_join.columns:
+            keep_cols.append("album_popularity")
+        if "album_release_date_raw" in albums_join.columns:
+            keep_cols.append("album_release_date_raw")
 
-        a = pd.to_datetime(a, errors="coerce")
-        b = pd.to_datetime(b, errors="coerce")
+        albums_join = albums_join[keep_cols].drop_duplicates("album_id")
 
-        df["release_date_parsed"] = a.combine_first(b)
-        df = add_release_time_features(df, "release_date_parsed")
-        return df
+        # merge: each track gets the date from its album_id
+        out = out.merge(albums_join, on="album_id", how="left")
+
+        # optional time features
+        out = add_release_time_features(out, "release_date_parsed")
+
+        # optional: remove tracks whose album has no date
+        # out = out[out["release_date_parsed"].notna()]
+
+        return out
 
     def _aggregate_artists_per_track(self, rta: pd.DataFrame, artists: pd.DataFrame) -> pd.DataFrame:
         if rta.empty or artists.empty:

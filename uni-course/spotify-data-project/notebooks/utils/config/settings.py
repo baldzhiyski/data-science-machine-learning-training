@@ -17,16 +17,6 @@ TOP_K_GENRES = 50
 ALLOW_TEXT_FEATURES = True
 ALLOW_LEAKY_FEATURES = False
 
-# Mood tag definitions: (tag_name, feature_name, threshold, comparator)
-MOOD_TAGS: List[Tuple[str, str, float, str]] = [
-    ("energetic", "energy", 0.75, "gt"),
-    ("danceable", "danceability", 0.75, "gt"),
-    ("acoustic", "acousticness", 0.75, "gt"),
-    ("instrumental", "instrumentalness", 0.75, "gt"),
-    ("happy", "valence", 0.75, "gt"),
-    ("sad", "valence", 0.25, "lt"),
-    ("chill", "energy", 0.25, "lt"),
-]
 
 MOOD_LABEL_SOURCE_AUDIO = [
     "acousticness", "danceability", "energy", "instrumentalness",

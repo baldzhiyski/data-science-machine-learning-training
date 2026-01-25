@@ -2,7 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import pandas as pd
 import numpy as np
-from .config import  MOOD_LABEL_SOURCE_AUDIO
+from ..config.settings import  MOOD_LABEL_SOURCE_AUDIO
 
 """
 Dataset-Building (Preprocessing für Modell-Tasks).

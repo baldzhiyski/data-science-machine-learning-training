@@ -449,6 +449,7 @@ class AlbumsCleaner(BaseCleaner):
         # release_date parsed (wir behalten original + parsed)
         if "release_date" in df.columns:
             df["release_date_parsed"] = parse_release_date_universal(df["release_date"])
+            df = df[df["release_date_parsed"].notna()]
 
         df = keep_most_complete_row(df, ["id"])
         return df
