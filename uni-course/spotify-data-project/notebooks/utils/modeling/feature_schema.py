@@ -2,34 +2,34 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Set, Tuple
+from typing import Dict, List, Optional, Set, Tuple, Literal
 
-import numpy as np
 import pandas as pd
 
 
-# ----------------------------
-# Config
-# ----------------------------
+TaskName = Literal[
+    "success_pct",
+    "success_residual",
+    "hit",
+    "mood",
+    "ranker",
+    "generic",
+]
+
+
 @dataclass(frozen=True)
 class FeatureSchemaConfig:
-    # Global policies
     allow_text_features: bool = True
-    allow_reach_proxies: bool = False  # OFF by default (more realistic)
-    allow_album_popularity_proxy: bool = False  # OFF by default (very leaky)
+    allow_reach_proxies: bool = False
+    allow_album_popularity_proxy: bool = False
+    prefer_duration_col: str = "duration_af"
 
-    # Which duration column to prefer if both exist
-    prefer_duration_col: str = "duration_af"  # fallback "duration"
-
-    # Audio policy (track-level)
     policy_audio: Tuple[str, ...] = (
         "acousticness", "danceability", "energy", "instrumentalness", "liveness",
         "speechiness", "valence", "loudness", "tempo"
     )
-
     policy_audio_extra: Tuple[str, ...] = ("key", "mode", "time_signature")
 
-    # Core track columns you consider safe (if present)
     policy_track_base: Tuple[str, ...] = (
         "disc_number", "track_number",
         "duration", "duration_af", "log_duration",
@@ -46,7 +46,6 @@ class FeatureSchemaConfig:
         "is_long_track", "is_explicit",
     )
 
-    # Reach proxies (strong leakage for popularity-derived targets)
     reach_proxy_cols: Tuple[str, ...] = (
         "artist_popularity_mean", "artist_popularity_max",
         "artist_followers_mean", "artist_followers_max",
@@ -55,98 +54,93 @@ class FeatureSchemaConfig:
         "album_popularity", "popularity_vs_album",
     )
 
-    # Global NEVER columns (always excluded)
+    # Global NEVER (always excluded)
     never_cols: Set[str] = field(default_factory=lambda: {
-        # IDs
         "track_id", "album_id", "artist_id", "audio_feature_id", "id",
-        # URLs / URIs
         "analysis_url", "preview_url", "href", "uri", "spotify_url",
-        # Raw list columns (use multi-hot instead)
         "artist_ids", "track_genres", "album_genres", "artist_genres",
-        # Raw text
         "name", "name_album",
-        # Raw dates
         "release_date", "release_date_parsed", "track_release_date_parsed", "album_release_date_raw",
-        # Targets / leakage sources (extend per task)
         "popularity", "success_pct_in_cohort", "success_residual_in_cohort",
     })
 
+    # Task-specific leakage extras
+    task_never: Dict[str, Set[str]] = field(default_factory=lambda: {
+        # popularity-derived targets → exclude all popularity proxies by default
+        "success_pct": {"album_popularity", "artist_popularity_mean", "artist_popularity_max"},
+        "success_residual": {"album_popularity", "artist_popularity_mean", "artist_popularity_max"},
+        "hit": {"album_popularity", "artist_popularity_mean", "artist_popularity_max"},
+        # mood can optionally allow more metadata (still safe to keep strict)
+        "mood": set(),
+        "ranker": set(),
+        "generic": set(),
+    })
 
-# ----------------------------
-# Builder / Selector
-# ----------------------------
+
 class FeatureSchemaBuilder:
-    """
-    Builds clean ML feature matrices from prepared tables.
-    - Applies leakage guards
-    - Selects features by policy groups
-    - Optionally appends genre multi-hot matrices
-    """
-
     def __init__(self, config: FeatureSchemaConfig = FeatureSchemaConfig()):
         self.cfg = config
 
-    # ---------- public API ----------
-
+    # ---------------------------
+    # Track
+    # ---------------------------
     def build_track_matrix(
         self,
         track_df: pd.DataFrame,
         *,
+        task: TaskName = "generic",
         track_genre_mh: Optional[pd.DataFrame] = None,
     ) -> Dict[str, object]:
-        """
-        Returns dict:
-          - X_track (DataFrame)
-          - schema (dict with columns used)
-          - report (dict with dropped/missing)
-        """
         df = track_df.copy()
 
-        # 1) Collect candidates
-        cols = []
-        cols += self._present(df, list(self.cfg.policy_track_base))
-        cols += self._present(df, list(self.cfg.policy_audio))
-        cols += self._present(df, list(self.cfg.policy_audio_extra))
+        groups: Dict[str, List[str]] = {}
 
-        # text engineered
+        groups["base"] = self._present(df, list(self.cfg.policy_track_base))
+        groups["audio"] = self._present(df, list(self.cfg.policy_audio))
+        groups["audio_extra"] = self._present(df, list(self.cfg.policy_audio_extra))
+
         if self.cfg.allow_text_features:
-            cols += self._present(df, ["name_len", "name_words"])
+            groups["text"] = self._present(df, ["name_len", "name_words"])
+        else:
+            groups["text"] = []
 
-        # reach proxies
         if self.cfg.allow_reach_proxies:
-            cols += self._present(df, list(self.cfg.reach_proxy_cols))
+            groups["reach"] = self._present(df, list(self.cfg.reach_proxy_cols))
+        else:
+            groups["reach"] = []
 
-        # album popularity is extra risky (separate toggle)
+        # album popularity special toggle
         if not self.cfg.allow_album_popularity_proxy:
-            cols = [c for c in cols if c != "album_popularity"]
+            groups["reach"] = [c for c in groups["reach"] if c != "album_popularity"]
 
-        # 2) Resolve duplicate duration
+        # flatten
+        cols = self._dedup(sum(groups.values(), []))
+
+        # resolve duration duplicates
         cols = self._resolve_duration(cols, df)
 
-        # 3) Apply global NEVER policy
-        cols_final, dropped_never = self._apply_never(cols)
+        # apply never + task never
+        cols_final, dropped_never = self._apply_never(cols, task=task)
 
-        # 4) Build X
         X = df[cols_final].copy()
 
-        # 5) Append genre multi-hot
-        if track_genre_mh is not None and isinstance(track_genre_mh, pd.DataFrame) and track_genre_mh.shape[1] > 0:
-            X = pd.concat([X.reset_index(drop=True), track_genre_mh.reset_index(drop=True)], axis=1)
+        # Append genre multi-hot (align safely)
+        genre_cols = []
+        if isinstance(track_genre_mh, pd.DataFrame) and track_genre_mh.shape[1] > 0:
+            # if indices match, align by index; else fallback to row order
+            if track_genre_mh.index.equals(df.index):
+                X = pd.concat([X, track_genre_mh], axis=1)
+            else:
+                X = pd.concat([X.reset_index(drop=True), track_genre_mh.reset_index(drop=True)], axis=1)
+            genre_cols = list(track_genre_mh.columns)
 
-        # 6) Report
-        report = self._report(
-            df=df,
-            selected=cols_final,
-            dropped_never=dropped_never,
-            genre_cols=(list(track_genre_mh.columns) if isinstance(track_genre_mh, pd.DataFrame) else []),
-        )
+        report = self._report(df, cols_final, dropped_never, genre_cols, groups, task)
 
-        return {
-            "X_track": X,
-            "schema": {"track_cols": cols_final},
-            "report": report,
-        }
+        return {"X_track": X, "schema": {"track_cols": cols_final}, "report": report}
 
+    # ---------------------------
+    # Album
+    # ---------------------------
     def build_album_matrix(
         self,
         album_df: pd.DataFrame,
@@ -156,7 +150,6 @@ class FeatureSchemaBuilder:
     ) -> Dict[str, object]:
         df = album_df.copy()
 
-        # Base safe columns (exclude raw name + ids by NEVER)
         base = [
             "album_type",
             "release_year", "release_month", "release_decade",
@@ -175,34 +168,35 @@ class FeatureSchemaBuilder:
             "n_album_genres", "album_has_genre", "album_is_multi_genre",
         ]
 
-        # album mean audio columns (dynamic)
         mean_audio = [c for c in df.columns if c.startswith("album_mean_")]
-
         cols = self._present(df, base) + mean_audio
 
-        # Popularity proxies (OFF by default)
         if allow_popularity_proxy:
             cols += self._present(df, [
                 "album_artist_popularity_mean", "album_artist_popularity_max",
                 "album_artist_popularity_gap", "album_has_headliner_artist",
-                "popularity",  # album popularity itself (very leaky depending on task)
+                "popularity",
             ])
 
-        cols_final, dropped_never = self._apply_never(cols)
+        cols = self._dedup(cols)
+        cols_final, dropped_never = self._apply_never(cols, task="generic")
 
         X = df[cols_final].copy()
-        if album_genre_mh is not None and isinstance(album_genre_mh, pd.DataFrame) and album_genre_mh.shape[1] > 0:
-            X = pd.concat([X.reset_index(drop=True), album_genre_mh.reset_index(drop=True)], axis=1)
 
-        report = self._report(
-            df=df,
-            selected=cols_final,
-            dropped_never=dropped_never,
-            genre_cols=(list(album_genre_mh.columns) if isinstance(album_genre_mh, pd.DataFrame) else []),
-        )
+        genre_cols = []
+        if isinstance(album_genre_mh, pd.DataFrame) and album_genre_mh.shape[1] > 0:
+            if album_genre_mh.index.equals(df.index):
+                X = pd.concat([X, album_genre_mh], axis=1)
+            else:
+                X = pd.concat([X.reset_index(drop=True), album_genre_mh.reset_index(drop=True)], axis=1)
+            genre_cols = list(album_genre_mh.columns)
 
+        report = self._report(df, cols_final, dropped_never, genre_cols, groups=None, task="generic")
         return {"X_album": X, "schema": {"album_cols": cols_final}, "report": report}
 
+    # ---------------------------
+    # Artist (same idea as yours, shortened here)
+    # ---------------------------
     def build_artist_matrix(
         self,
         artist_df: pd.DataFrame,
@@ -230,51 +224,55 @@ class FeatureSchemaBuilder:
         if allow_popularity:
             cols += self._present(df, ["popularity", "is_headliner_popularity", "artist_vs_track_pop_gap"])
 
-        cols_final, dropped_never = self._apply_never(cols)
+        cols = self._dedup(cols)
+        cols_final, dropped_never = self._apply_never(cols, task="generic")
 
         X = df[cols_final].copy()
-        if artist_genre_mh is not None and isinstance(artist_genre_mh, pd.DataFrame) and artist_genre_mh.shape[1] > 0:
-            X = pd.concat([X.reset_index(drop=True), artist_genre_mh.reset_index(drop=True)], axis=1)
 
-        report = self._report(
-            df=df,
-            selected=cols_final,
-            dropped_never=dropped_never,
-            genre_cols=(list(artist_genre_mh.columns) if isinstance(artist_genre_mh, pd.DataFrame) else []),
-        )
+        genre_cols = []
+        if isinstance(artist_genre_mh, pd.DataFrame) and artist_genre_mh.shape[1] > 0:
+            if artist_genre_mh.index.equals(df.index):
+                X = pd.concat([X, artist_genre_mh], axis=1)
+            else:
+                X = pd.concat([X.reset_index(drop=True), artist_genre_mh.reset_index(drop=True)], axis=1)
+            genre_cols = list(artist_genre_mh.columns)
 
+        report = self._report(df, cols_final, dropped_never, genre_cols, groups=None, task="generic")
         return {"X_artist": X, "schema": {"artist_cols": cols_final}, "report": report}
 
-    # ---------- internal helpers ----------
-
+    # ---------------------------
+    # Helpers
+    # ---------------------------
     @staticmethod
     def _present(df: pd.DataFrame, cols: List[str]) -> List[str]:
         return [c for c in cols if c in df.columns]
 
-    def _apply_never(self, cols: List[str]) -> Tuple[List[str], List[str]]:
+    @staticmethod
+    def _dedup(cols: List[str]) -> List[str]:
         seen = set()
-        dedup = []
+        out = []
         for c in cols:
             if c not in seen:
-                dedup.append(c)
+                out.append(c)
                 seen.add(c)
+        return out
 
-        dropped = [c for c in dedup if c in self.cfg.never_cols]
-        final = [c for c in dedup if c not in self.cfg.never_cols]
+    def _apply_never(self, cols: List[str], *, task: TaskName) -> Tuple[List[str], List[str]]:
+        task_block = self.cfg.task_never.get(task, set())
+        blocked = self.cfg.never_cols.union(task_block)
+        dropped = [c for c in cols if c in blocked]
+        final = [c for c in cols if c not in blocked]
         return final, dropped
 
     def _resolve_duration(self, cols: List[str], df: pd.DataFrame) -> List[str]:
-        # keep only one duration column (prefer cfg.prefer_duration_col if exists)
-        duration_candidates = [c for c in ["duration_af", "duration"] if c in df.columns]
+        duration_candidates = [c for c in ["duration_af", "duration"] if c in df.columns and c in cols]
         if len(duration_candidates) <= 1:
             return cols
 
         prefer = self.cfg.prefer_duration_col
         keep = prefer if prefer in duration_candidates else duration_candidates[0]
         drop = [c for c in duration_candidates if c != keep]
-
-        out = [c for c in cols if c not in drop]
-        return out
+        return [c for c in cols if c not in drop]
 
     @staticmethod
     def _report(
@@ -282,15 +280,18 @@ class FeatureSchemaBuilder:
         selected: List[str],
         dropped_never: List[str],
         genre_cols: List[str],
+        groups: Optional[Dict[str, List[str]]],
+        task: str,
     ) -> Dict[str, object]:
-        missing = [c for c in selected if c not in df.columns]
-        # (missing should be empty, but keep it for sanity)
-        return {
+        base = {
+            "task": task,
             "n_rows": int(df.shape[0]),
             "n_selected": int(len(selected)),
-            "selected_cols": selected,
+            "selected_preview": selected[:25],
             "dropped_never": dropped_never,
-            "missing_after_select": missing,
             "n_genre_cols": int(len(genre_cols)),
-            "genre_cols_preview": genre_cols[:10],
+            "genre_preview": genre_cols[:10],
         }
+        if groups:
+            base["group_counts"] = {k: len(v) for k, v in groups.items()}
+        return base
