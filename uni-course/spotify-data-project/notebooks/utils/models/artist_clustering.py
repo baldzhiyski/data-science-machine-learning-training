@@ -4,23 +4,7 @@ import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
-
 import matplotlib.pyplot as plt
-
-"""
-Task: Artist Clustering (Unsupervised).
-
-Ziel:
-Künstler anhand numerischer Features clustern (PCA -> KMeans).
-
-Output:
-- Modelle (Scaler/PCA/KMeans)
-- Artefakt-Dict für Report
-- optional extra (X_used, labels) für Notebook-Plots
-
-Hinweis:
-Clustering hat kein klassisches "Ground Truth"-Metric; Validierung erfolgt oft qualitativ/visuell.
-"""
 
 
 @dataclass
@@ -31,18 +15,37 @@ class ArtistClusteringRunner:
     pca_dim: int = 16
 
     def run(self, artist_df: pd.DataFrame):
-        X_df = artist_df.select_dtypes(include=["number", "bool"]).fillna(0).astype(float)
 
-        # Optional scaling (recommended)
+        X_df = (
+            artist_df
+            .select_dtypes(include=["number", "bool"])
+            .copy()
+        )
+
+        # make sure we have something to cluster
+        if X_df.shape[1] == 0:
+            raise ValueError("No numeric/bool features found for clustering.")
+
+        # fill missing + cast to float
+        X_df = X_df.fillna(0).astype(float)
+
+        # ---- scaling (recommended for KMeans + PCA)
         scaler = None
         X_used = X_df.to_numpy()
+
         if self.scale:
             scaler = StandardScaler()
             X_used = scaler.fit_transform(X_used)
 
-        pca = PCA(n_components=min(self.pca_dim, X_used.shape[1]), random_state=self.seed)
+        # ---- PCA
+        n_components = min(self.pca_dim, X_used.shape[1])
+        if n_components < 1:
+            raise ValueError("PCA components ended up < 1. Check your feature matrix.")
+
+        pca = PCA(n_components=n_components, random_state=self.seed)
         Xp = pca.fit_transform(X_used)
 
+        # ---- KMeans
         km = KMeans(n_clusters=self.k, random_state=self.seed, n_init=10)
         labels = km.fit_predict(Xp)
 
@@ -57,7 +60,7 @@ class ArtistClusteringRunner:
         }
 
         models = {"scaler": scaler, "pca": pca, "kmeans": km}
-        extra = {"X_used": X_used, "labels": labels}  # <-- for plotting
+        extra = {"X_used": X_used, "labels": labels, "X_df_cols": list(X_df.columns)}
 
         return models, artifact, extra
 

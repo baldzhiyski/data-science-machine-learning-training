@@ -5,7 +5,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import f1_score
-from ..splits import cohort_time_split
+from ..data.splits import cohort_time_split
+from ..data.preprocess import TabularPreprocessor
 
 """
 Task: Mood/Genre Multi-Label Classification.
@@ -25,6 +26,11 @@ class MoodTrainer:
         Xtr, Xte, Ytr, Yte = train_test_split(
             ds.X, ds.y, test_size=0.20, random_state=self.seed
         )
+        pre = TabularPreprocessor(model_kind="linear", text_cols=[])
+        ct = pre.build(Xtr)
+
+        Xtr_p = ct.fit_transform(Xtr)
+        Xte_p = ct.transform(Xte)
 
         if params:
             base = SGDClassifier(
@@ -41,10 +47,10 @@ class MoodTrainer:
                 random_state=self.seed,
             )
         clf = OneVsRestClassifier(base)
-        clf.fit(Xtr, Ytr)
+        clf.fit(Xtr_p, Ytr)
 
         # probabilities
-        P = clf.predict_proba(Xte)
+        P = clf.predict_proba(Xte_p)
 
         # per-label threshold search (simple)
         thresholds = {}
@@ -96,6 +102,11 @@ class MoodTrainer:
         Xtr, Ytr = ds.X.iloc[idx_tr], ds.y.iloc[idx_tr]
         Xva, Yva = ds.X.iloc[idx_va], ds.y.iloc[idx_va]
 
+        pre = TabularPreprocessor(model_kind="linear", text_cols=[])
+        ct = pre.build(Xtr)
+        Xtr_p = ct.fit_transform(Xtr)
+        Xva_p = ct.transform(Xva)
+
         def sigmoid(z):
             z = np.clip(z, -20, 20)  # numerical stability
             return 1.0 / (1.0 + np.exp(-z))
@@ -140,9 +151,9 @@ class MoodTrainer:
             )
 
             model = OneVsRestClassifier(base, n_jobs=4)
-            model.fit(Xtr, Ytr)
+            model.fit(Xtr_p, Ytr)
 
-            proba_like = get_scores_ovr(model, Xva)
+            proba_like = get_scores_ovr(model, Xva_p)
             pred = (proba_like >= thr).astype(int)
 
             return float(f1_score(Yva.values, pred, average="micro"))

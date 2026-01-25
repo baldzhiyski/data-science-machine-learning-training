@@ -1,8 +1,9 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from xgboost import XGBRegressor
-from ..splits import cohort_time_split
-from ..metrics import regression_metrics
+from ..data.splits import cohort_time_split
+from ..evaluation.metrics import regression_metrics
+from ..data.preprocess import TabularPreprocessor
 
 """
 Task: Success Residual within Cohort (Regression).
@@ -23,9 +24,16 @@ class SuccessResidualTrainer:
     def fit_eval(self, ds, params : dict | None = None):
         idx_tr, idx_va, idx_te = cohort_time_split(ds.meta, "cohort_ym", n_val=3, n_test=6)
 
-        Xtr, ytr = ds.X[idx_tr], ds.y[idx_tr]
-        Xva, yva = ds.X[idx_va], ds.y[idx_va]
-        Xte, yte = ds.X[idx_te], ds.y[idx_te]
+        Xtr, ytr = ds.X.iloc[idx_tr], ds.y.iloc[idx_tr]
+        Xva, yva = ds.X.iloc[idx_va], ds.y.iloc[idx_va]
+        Xte, yte = ds.X.iloc[idx_te], ds.y.iloc[idx_te]
+
+        pre = TabularPreprocessor(model_kind="tree", text_cols=[])
+        ct = pre.build(Xtr)
+
+        Xtr_p = ct.fit_transform(Xtr)
+        Xva_p = ct.transform(Xva)
+        Xte_p = ct.transform(Xte)
 
         # More regularized than success_pct (residual target is noisier)
         if params:
@@ -48,12 +56,12 @@ class SuccessResidualTrainer:
                 random_state=self.seed,
                 n_jobs=4,
             )
-        model.fit(Xtr, ytr, eval_set=[(Xva, yva)], verbose=False)
+        model.fit(Xtr_p, ytr, eval_set=[(Xva_p, yva)], verbose=False)
 
         metrics = {
-            "train": regression_metrics(ytr, model.predict(Xtr)),
-            "val": regression_metrics(yva, model.predict(Xva)),
-            "test": regression_metrics(yte, model.predict(Xte)),
+            "train": regression_metrics(ytr, model.predict(Xtr_p)),
+            "val": regression_metrics(yva, model.predict(Xva_p)),
+            "test": regression_metrics(yte, model.predict(Xte_p)),
         }
         return model, metrics
 
@@ -83,6 +91,12 @@ class SuccessResidualTrainer:
         idx_tr, idx_va, _ = cohort_time_split(ds.meta, cohort_col="cohort_ym", n_val=3, n_test=6)
         Xtr, ytr = ds.X.iloc[idx_tr], ds.y.iloc[idx_tr]
         Xva, yva = ds.X.iloc[idx_va], ds.y.iloc[idx_va]
+
+        pre = TabularPreprocessor(model_kind="tree", text_cols=[])
+        ct = pre.build(Xtr)
+
+        Xtr_p = ct.fit_transform(Xtr)
+        Xva_p = ct.transform(Xva)
 
         def objective(trial):
             params = {
@@ -119,12 +133,12 @@ class SuccessResidualTrainer:
                 **params,
             )
 
-            model.fit(Xtr, ytr, eval_set=[(Xva, yva)], verbose=False)
+            model.fit(Xtr_p, ytr, eval_set=[(Xva_p, yva)], verbose=False)
 
             if getattr(model, "best_iteration", None) is not None:
-                pred = model.predict(Xva, iteration_range=(0, model.best_iteration + 1))
+                pred = model.predict(Xva_p, iteration_range=(0, model.best_iteration + 1))
             else:
-                pred = model.predict(Xva)
+                pred = model.predict(Xva_p)
 
             return float(regression_metrics(yva, pred)["MAE"])
 

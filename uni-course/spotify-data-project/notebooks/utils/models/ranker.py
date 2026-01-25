@@ -3,7 +3,8 @@ from dataclasses import dataclass
 import numpy as np
 from xgboost import XGBRanker
 from sklearn.metrics import ndcg_score
-from ..splits import cohort_time_split
+from ..data.splits import cohort_time_split
+from ..data.preprocess import TabularPreprocessor
 
 
 def _to_relevance_0_31(y_pct):
@@ -34,8 +35,17 @@ class RankerTrainer:
 
         idx_tr, idx_va, idx_te = cohort_time_split(ds_success_pct.meta, "cohort_ym", n_val=3, n_test=6)
 
-        Xtr, Xva, Xte = ds_success_pct.X[idx_tr], ds_success_pct.X[idx_va], ds_success_pct.X[idx_te]
+        Xtr = ds_success_pct.X.iloc[idx_tr]
+        Xva = ds_success_pct.X.iloc[idx_va]
+        Xte = ds_success_pct.X.iloc[idx_te]
         ytr, yva, yte = y_rel[idx_tr], y_rel[idx_va], y_rel[idx_te]
+
+        pre = TabularPreprocessor(model_kind="tree", text_cols=[])
+        ct = pre.build(Xtr)
+
+        Xtr_p = ct.fit_transform(Xtr)
+        Xva_p = ct.transform(Xva)
+        Xte_p = ct.transform(Xte)
 
         # groups = per cohort counts
         def group_sizes(meta):
@@ -66,11 +76,11 @@ class RankerTrainer:
                 n_jobs=4,
             )
 
-        model.fit(Xtr, ytr, group=gtr, eval_set=[(Xva, yva)], eval_group=[gva], verbose=False)
+        model.fit(Xtr_p, ytr, group=gtr, eval_set=[(Xva_p, yva)], eval_group=[gva], verbose=False)
 
         # NDCG on test computed per cohort, then averaged
         meta_te = ds_success_pct.meta[idx_te].reset_index(drop=True)
-        scores = model.predict(Xte)
+        scores = model.predict(Xte_p)
 
         ndcgs = []
         for cohort, idxs in meta_te.groupby("cohort_ym").groups.items():
@@ -154,6 +164,12 @@ class RankerTrainer:
         Xtr, ytr, mtr = ds.X.loc[tr_order], ds.y.loc[tr_order], ds.meta.loc[tr_order]
         Xva, yva, mva = ds.X.loc[va_order], ds.y.loc[va_order], ds.meta.loc[va_order]
 
+        pre = TabularPreprocessor(model_kind="tree", text_cols=[])
+        ct = pre.build(Xtr)
+
+        Xtr_p = ct.fit_transform(Xtr)
+        Xva_p = ct.transform(Xva)
+
         group_tr = build_group_sizes(mtr)
         group_va = build_group_sizes(mva)
 
@@ -199,17 +215,17 @@ class RankerTrainer:
             )
 
             ranker.fit(
-                Xtr, ytr_rel,
+                Xtr_p, ytr_rel,
                 group=group_tr,
-                eval_set=[(Xva, yva_rel)],
+                eval_set=[(Xva_p, yva_rel)],
                 eval_group=[group_va],
                 verbose=False,
             )
 
             if getattr(ranker, "best_iteration", None) is not None:
-                y_score = ranker.predict(Xva, iteration_range=(0, ranker.best_iteration + 1))
+                y_score = ranker.predict(Xva_p, iteration_range=(0, ranker.best_iteration + 1))
             else:
-                y_score = ranker.predict(Xva)
+                y_score = ranker.predict(Xva_p)
 
             return mean_ndcg_at_k(yva_rel, y_score, group_va, k=k)
 

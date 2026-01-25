@@ -5,8 +5,8 @@ import pandas as pd
 from xgboost import XGBRegressor, XGBClassifier
 from sklearn.metrics import roc_auc_score, average_precision_score
 
-from ..splits import time_fraction_split
-from ..metrics import regression_metrics
+from ..data.splits import time_fraction_split
+from ..evaluation.metrics import regression_metrics
 import optuna
 
 """

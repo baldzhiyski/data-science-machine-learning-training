@@ -3,8 +3,9 @@ from dataclasses import dataclass
 import numpy as np
 from sklearn.metrics import average_precision_score
 from xgboost import XGBClassifier
-from ..splits import cohort_time_split
-from ..metrics import binary_metrics, find_best_threshold_f1
+from ..data.splits import cohort_time_split
+from ..evaluation.metrics import binary_metrics, find_best_threshold_f1
+from ..data.preprocess import TabularPreprocessor
 import optuna
 """
 Task: Hit Prediction (Binary Classification).
@@ -34,9 +35,16 @@ class HitTrainer:
     def fit_eval(self, ds,params : dict | None = None):
         idx_tr, idx_va, idx_te = cohort_time_split(ds.meta, "cohort_ym", n_val=3, n_test=6)
 
-        Xtr, ytr = ds.X[idx_tr], ds.y[idx_tr]
-        Xva, yva = ds.X[idx_va], ds.y[idx_va]
-        Xte, yte = ds.X[idx_te], ds.y[idx_te]
+        Xtr, ytr = ds.X.iloc[idx_tr], ds.y.iloc[idx_tr]
+        Xva, yva = ds.X.iloc[idx_va], ds.y.iloc[idx_va]
+        Xte, yte = ds.X.iloc[idx_te], ds.y.iloc[idx_te]
+
+        pre = TabularPreprocessor(model_kind="tree", text_cols=[])  # no raw text in your schema
+        ct = pre.build(Xtr)
+
+        Xtr_p = ct.fit_transform(Xtr)
+        Xva_p = ct.transform(Xva)
+        Xte_p = ct.transform(Xte)
 
         if params:
             clf = XGBClassifier(
@@ -59,12 +67,12 @@ class HitTrainer:
                 n_jobs=4,
                 eval_metric="aucpr",
             )
-        clf.fit(Xtr, ytr, eval_set=[(Xva, yva)], verbose=False)
+        clf.fit(Xtr_p, ytr, eval_set=[(Xva_p, yva)], verbose=False)
 
-        proba_va = clf.predict_proba(Xva)[:, 1]
+        proba_va = clf.predict_proba(Xva_p)[:, 1]
         thr, thr_f1 = find_best_threshold_f1(yva, proba_va)
 
-        proba_te = clf.predict_proba(Xte)[:, 1]
+        proba_te = clf.predict_proba(Xte_p)[:, 1]
         m = binary_metrics(yte, proba_te, threshold=thr)
         m["best_threshold"] = float(thr)
         m["best_threshold_f1_on_val"] = float(thr_f1)
@@ -88,6 +96,11 @@ class HitTrainer:
         idx_tr, idx_va, _ = cohort_time_split(ds.meta, cohort_col="cohort_ym", n_val=3, n_test=6)
         Xtr, ytr = ds.X.iloc[idx_tr], ds.y.iloc[idx_tr]
         Xva, yva = ds.X.iloc[idx_va], ds.y.iloc[idx_va]
+
+        pre = TabularPreprocessor(model_kind="tree", text_cols=[])
+        ct = pre.build(Xtr)
+        Xtr_p = ct.fit_transform(Xtr)
+        Xva_p = ct.transform(Xva)
 
         # base class imbalance
         pos = float(np.sum(ytr == 1))
@@ -135,8 +148,8 @@ class HitTrainer:
                 **params,
             )
 
-            clf.fit(Xtr, ytr, eval_set=[(Xva, yva)], verbose=False)
-            proba = clf.predict_proba(Xva)[:, 1]
+            clf.fit(Xtr_p, ytr, eval_set=[(Xva_p, yva)], verbose=False)
+            proba = clf.predict_proba(Xva_p)[:, 1]
             return average_precision_score(yva, proba)  # maximize PR-AUC
 
         study = optuna.create_study(direction="maximize")

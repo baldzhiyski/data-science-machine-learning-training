@@ -1,89 +1,96 @@
-from typing import Tuple, List
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import List, Optional, Literal, Tuple
+
 import pandas as pd
 from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler, FunctionTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.impute import SimpleImputer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 
-def onehot_encoder_compat():
+ModelKind = Literal["tree", "linear"]
+
+
+@dataclass
+class TabularPreprocessor:
     """
-    Factory für OneHotEncoder.
-    - handle_unknown="ignore": verhindert Fehler bei Kategorien, die im Train nicht gesehen wurden.
-    - Absichtlich minimal gehalten, um über sklearn-Versionen stabil zu bleiben.
+    Reusable preprocessor builder for mixed tabular data.
+
+    - model_kind="tree": numeric impute only, categorical one-hot
+    - model_kind="linear": numeric impute + scaling, categorical one-hot
+    - optional text_cols: TF-IDF per text column
+
+    Usage:
+        pre = TabularPreprocessor(model_kind="tree", text_cols=["title", "lyrics"])
+        ct = pre.build(X_train)
+        Xtr = ct.fit_transform(X_train)
+        Xva = ct.transform(X_val)
     """
-    return OneHotEncoder(handle_unknown="ignore")
+    model_kind: ModelKind = "tree"
+    text_cols: Optional[List[str]] = None
 
+    # TF-IDF knobs (safe defaults)
+    tfidf_max_features: int = 50_000
+    tfidf_ngram_range: Tuple[int, int] = (1, 2)
+    tfidf_min_df: int = 2
 
-def build_preprocessor_tree(X: pd.DataFrame) -> Tuple[ColumnTransformer, List[str], List[str]]:
-    """
-    Preprocessing für Tree-Modelle (z. B. XGBoost/RandomForest):
+    # ColumnTransformer config
+    sparse_threshold: float = 0.3
+    remainder: str = "drop"
 
-    - Numeric: SimpleImputer(median)
-    - Categorical: SimpleImputer(most_frequent) + OneHotEncoder
-    - Kein Scaling (Tree-Modelle brauchen i. d. R. kein Feature-Scaling)
+    def onehot_encoder(self) -> OneHotEncoder:
+        return OneHotEncoder(handle_unknown="ignore")
 
-    Rückgabe:
-    - pre: ColumnTransformer
-    - numeric_cols: Liste numerischer Spalten
-    - categorical_cols: Liste kategorialer Spalten
-    """
-    numeric_cols = [c for c in X.columns if pd.api.types.is_numeric_dtype(X[c])]
-    categorical_cols = [c for c in X.columns if c not in numeric_cols]
+    def infer_columns(self, X: pd.DataFrame) -> tuple[list[str], list[str], list[str]]:
+        text_cols = [c for c in (self.text_cols or []) if c in X.columns]
 
-    num_pipe = Pipeline(steps=[
-        ("imputer", SimpleImputer(strategy="median")),
-    ])
+        numeric_cols = [c for c in X.columns if pd.api.types.is_numeric_dtype(X[c])]
+        categorical_cols = [c for c in X.columns if c not in numeric_cols and c not in text_cols]
 
-    cat_pipe = Pipeline(steps=[
-        ("imputer", SimpleImputer(strategy="most_frequent")),
-        ("onehot", onehot_encoder_compat()),
-    ])
+        return numeric_cols, categorical_cols, text_cols
 
-    pre = ColumnTransformer(
-        transformers=[
-            ("num", num_pipe, numeric_cols),
-            ("cat", cat_pipe, categorical_cols),
-        ],
-        remainder="drop",
-        sparse_threshold=0.3
-    )
-    return pre, numeric_cols, categorical_cols
+    def _numeric_pipe(self) -> Pipeline:
+        steps = [("imputer", SimpleImputer(strategy="median"))]
+        if self.model_kind == "linear":
+            # with_mean=False is important for sparse matrices
+            steps.append(("scaler", StandardScaler(with_mean=False)))
+        return Pipeline(steps=steps)
 
+    def _categorical_pipe(self) -> Pipeline:
+        return Pipeline(steps=[
+            ("imputer", SimpleImputer(strategy="most_frequent")),
+            ("onehot", self.onehot_encoder()),
+        ])
 
-def build_preprocessor_linear(X: pd.DataFrame) -> Tuple[ColumnTransformer, List[str], List[str]]:
-    """
-    Preprocessing für lineare Modelle (z. B. SGDRegressor/SGDClassifier/Ridge):
+    def _text_pipe(self) -> Pipeline:
+        # Vectorizer expects 1D strings; we impute missing values to ""
+        return Pipeline(steps=[
+            ("imputer", SimpleImputer(strategy="constant", fill_value="")),
+            ("tfidf", TfidfVectorizer(
+                max_features=self.tfidf_max_features,
+                ngram_range=self.tfidf_ngram_range,
+                min_df=self.tfidf_min_df,
+            )),
+        ])
 
-    - Numeric: SimpleImputer(median) + StandardScaler(with_mean=False)
-      (with_mean=False ist wichtig, wenn die Matrix sparse wird)
-    - Categorical: SimpleImputer(most_frequent) + OneHotEncoder
-    - Scaling ist bei linearen Modellen typischerweise hilfreich.
+    def build(self, X: pd.DataFrame) -> ColumnTransformer:
+        numeric_cols, categorical_cols, text_cols = self.infer_columns(X)
 
-    Rückgabe:
-    - pre: ColumnTransformer
-    - numeric_cols: Liste numerischer Spalten
-    - categorical_cols: Liste kategorialer Spalten
-    """
-    numeric_cols = [c for c in X.columns if pd.api.types.is_numeric_dtype(X[c])]
-    categorical_cols = [c for c in X.columns if c not in numeric_cols]
+        transformers = []
+        if numeric_cols:
+            transformers.append(("num", self._numeric_pipe(), numeric_cols))
+        if categorical_cols:
+            transformers.append(("cat", self._categorical_pipe(), categorical_cols))
 
-    num_pipe = Pipeline(steps=[
-        ("imputer", SimpleImputer(strategy="median")),
-        ("scaler", StandardScaler(with_mean=False)),  # wichtig wegen Sparse-Matrix
-    ])
+        # TF-IDF per text column (important)
+        for c in text_cols:
+            transformers.append((f"txt_{c}", self._text_pipe(), c))
 
-    cat_pipe = Pipeline(steps=[
-        ("imputer", SimpleImputer(strategy="most_frequent")),
-        ("onehot", onehot_encoder_compat()),
-    ])
-
-    pre = ColumnTransformer(
-        transformers=[
-            ("num", num_pipe, numeric_cols),
-            ("cat", cat_pipe, categorical_cols),
-        ],
-        remainder="drop",
-        sparse_threshold=0.3
-    )
-    return pre, numeric_cols, categorical_cols
+        return ColumnTransformer(
+            transformers=transformers,
+            remainder=self.remainder,
+            sparse_threshold=self.sparse_threshold,
+        )
