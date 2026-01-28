@@ -23,7 +23,16 @@ class DataBundle:
     artist_df: pd.DataFrame
     album_df: pd.DataFrame
 
-    X_track: pd.DataFrame
+
+
+    X_track_hit:  pd.DataFrame
+    X_track_mood: pd.DataFrame
+    X_track_success: pd.DataFrame
+    X_album: pd.DataFrame
+    X_artist: pd.DataFrame
+    y_artist_growth: pd.Series
+    y_artist_breakout: pd.Series
+
     y_success_pct: pd.Series
     y_success_residual: pd.Series
     y_hit: pd.Series
@@ -59,15 +68,22 @@ def load_all(input_targets_path: Path) -> DataBundle:
         DataBundle:
             Container mit track_df/artist_df/album_df, X_track und allen Targets (y_*).
         """
-    track_df = pd.read_parquet(input_targets_path / "track_dataset_full.parquet")
-    artist_df = pd.read_parquet(input_targets_path / "artist_dataset_full.parquet")
-    album_df = pd.read_parquet(input_targets_path / "album_dataset_full.parquet")
+    track_df = pd.read_parquet(input_targets_path / "track_df.parquet")
+    artist_df = pd.read_parquet(input_targets_path / "artist_df.parquet")
+    album_df = pd.read_parquet(input_targets_path / "album_df.parquet")
 
-    X_track = pd.read_parquet(input_targets_path / "X_track_full.parquet")
+    X_track_hit = pd.read_parquet(input_targets_path / "X_track_hit.parquet")
+    X_track_mood = pd.read_parquet(input_targets_path / "X_track_mood.parquet")
+    X_track_success = pd.read_parquet(input_targets_path / "X_track_success.parquet")
+    X_track_mood = pd.read_parquet(input_targets_path / "X_track_mood.parquet")
+    X_album = pd.read_parquet(input_targets_path / "X_album.parquet")
+    X_artist = pd.read_parquet(input_targets_path / "X_artist.parquet")
 
     y_success_pct = _read_series(input_targets_path / "y_success_pct.parquet")
     y_success_residual = _read_series(input_targets_path / "y_success_residual.parquet")
     y_hit = _read_series(input_targets_path / "y_hit.parquet")
+    y_artist_growth = _read_series(input_targets_path / "y_artist_growth.parquet")
+    y_artist_breakout = _read_series(input_targets_path / "y_artist_breakout.parquet")
 
     Y_mood = pd.read_parquet(input_targets_path / "Y_mood.parquet")
 
@@ -86,7 +102,13 @@ def load_all(input_targets_path: Path) -> DataBundle:
         track_df=track_df,
         artist_df=artist_df,
         album_df=album_df,
-        X_track=X_track,
+        X_track_hit =X_track_hit,
+        X_track_mood=X_track_mood,
+        X_track_success=X_track_success,
+        X_album=X_album,
+        X_artist=X_artist,
+        y_artist_growth=y_artist_growth,
+        y_artist_breakout=y_artist_breakout,
         y_success_pct=y_success_pct,
         y_success_residual=y_success_residual,
         y_hit=y_hit,
