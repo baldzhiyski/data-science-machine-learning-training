@@ -5,15 +5,35 @@ from ..data.splits import cohort_time_split
 from ..evaluation.metrics import regression_metrics
 from ..data.preprocess import TabularPreprocessor
 
+from .tuning_utils import (
+    create_optuna_study,
+    xgb_device_kwargs,
+    suggest_xgb_regression_params,
+    collect_tuning_artifacts,
+    EARLY_STOPPING_ROUNDS,
+)
+
 """
-Task: Success Residual within Cohort (Regression).
+Task: Erfolgs-Residual innerhalb Kohorte (Regression).
+
+Tuning-Strategie:
+-----------------
+- Primäre Metrik: MAE (Mean Absolute Error) auf Validierungs-Split
+- XGBoost-Objective: reg:absoluteerror (richtet sich am MAE aus)
+- Early Stopping: 300 Runden mit n_estimators=20000 Obergrenze
+- Stärkere Regularisierung als success_pct (Residual-Targets sind verrauschter)
+
+Warum MAE für Residuals?
+- Residual-Vorhersagen zentrieren um 0
+- MAE ist robust gegenüber Ausreißern in Residual-Verteilungen
+- Negativer R² auf Val/Test signalisiert Overfitting oder Target-Probleme
+
+Hinweis:
+Residual-Targets sind oft verrauschter -> stärkere Regularisierung sinnvoll.
+Negativer R² auf Val/Test ist ein typisches Symptom für Overfitting oder Target-/Split-Bugs.
 
 Ziel:
 Modelliert "Überperformance" relativ zur Kohorte (Residual statt roher Erfolg).
-
-Hinweis:
-Residual-Targets sind oft noisier -> stärkere Regularisierung sinnvoll.
-Negative R² auf Val/Test ist ein typisches Symptom für Overfitting oder Target-/Split-Bugs.
 """
 
 
@@ -35,7 +55,7 @@ class SuccessResidualTrainer:
         Xva_p = ct.transform(Xva)
         Xte_p = ct.transform(Xte)
 
-        # More regularized than success_pct (residual target is noisier)
+        # Stärker regularisiert als success_pct (Residual-Target ist verrauschter)
         if params:
             model = XGBRegressor(
                 random_state=self.seed,
@@ -68,26 +88,28 @@ class SuccessResidualTrainer:
 
     def tune(self, ds, n_trials: int = 50, device: str = "cpu"):
         """
-        Hyperparameter-Tuning für Success Residual (Regression).
-        Optimiert MAE auf dem Validierungs-Split.
+        Hyperparameter-Tuning für Erfolgs-Residual (Regression).
 
-        Improvements:
-        - Do NOT tune n_estimators; use high cap + early stopping
-        - Stronger regularization + lower capacity for time-split generalization
-        - Objective aligned with MAE (absolute error)
+        Optimierungs-Strategie:
+        ----------------------
+        - Primäres Ziel: Minimiere MAE auf Validierungs-Split
+        - XGBoost-Objective: reg:absoluteerror (richtet sich am MAE aus)
+        - eval_metric: mae (für Early Stopping verwendet)
+        - Reproduzierbar: Fester TPE-Sampler-Seed
+
+        Anti-Overfit-Maßnahmen (Stärker als success_pct):
+        ------------------------------------------------
+        - n_estimators=20000 mit 300 Runden Early Stopping
+        - max_depth 3-7 (niedrigere Kapazität für verrauschte Residual-Targets)
+        - max_leaves 16-128 (Hist-Regularisierer)
+        - Stärkere Regularisierung für Residual-Rauschen empfohlen
+        - Subsampling 0.6-0.9 um Varianz zu reduzieren
+
+        Monitoring:
+        ----------
+        - R² tracken um Overfitting zu erkennen (negativer R² = Problem)
+        - Train/Val/Test-Metriken in fit_eval für Diagnostik berichten
         """
-
-        import optuna
-        from xgboost import XGBRegressor
-
-        def _xgb_device_kwargs(dev: str | None):
-            dev = (dev or "cpu").lower().strip()
-            if dev == "gpu":
-                dev = "cuda"
-            if dev.startswith("cuda"):
-                return {"tree_method": "hist", "device": dev}
-            return {"tree_method": "hist", "device": "cpu"}
-
         idx_tr, idx_va, _ = cohort_time_split(ds.meta, cohort_col="cohort_ym", n_val=3, n_test=6)
         Xtr, ytr = ds.X.iloc[idx_tr], ds.y.iloc[idx_tr]
         Xva, yva = ds.X.iloc[idx_va], ds.y.iloc[idx_va]
@@ -98,55 +120,67 @@ class SuccessResidualTrainer:
         Xtr_p = ct.fit_transform(Xtr)
         Xva_p = ct.transform(Xva)
 
+        # Zusätzliche Metriken über Trials tracken
+        best_trial_r2 = {"r2": float("-inf"), "trial": -1}
+
         def objective(trial):
-            params = {
-                # Let early stopping choose number of trees
-                "n_estimators": 20000,
-                "learning_rate": trial.suggest_float("learning_rate", 0.01, 0.12, log=True),
+            nonlocal best_trial_r2
 
-                # Capacity control
-                "max_depth": trial.suggest_int("max_depth", 3, 7),
-                "min_child_weight": trial.suggest_float("min_child_weight", 2.0, 40.0, log=True),
-
-                # Subsampling for robustness
-                "subsample": trial.suggest_float("subsample", 0.65, 0.95),
-                "colsample_bytree": trial.suggest_float("colsample_bytree", 0.65, 0.95),
-
-                # Meaningful regularization
-                "reg_lambda": trial.suggest_float("reg_lambda", 1.0, 50.0, log=True),
-                "reg_alpha": trial.suggest_float("reg_alpha", 1e-4, 2.0, log=True),
-
-                # modest split penalty
-                "gamma": trial.suggest_float("gamma", 0.0, 2.0),
-
-                # hist regularizer (optional but strong)
-                "max_leaves": trial.suggest_int("max_leaves", 16, 256),
-            }
+            # Suchraum von unified utilities holen
+            params = suggest_xgb_regression_params(trial)
 
             model = XGBRegressor(
                 random_state=self.seed,
                 n_jobs=4,
-                objective="reg:absoluteerror",
+                objective="reg:absoluteerror",  # Richtet sich am MAE aus
                 eval_metric="mae",
-                early_stopping_rounds=300,
-                **_xgb_device_kwargs(device),
+                early_stopping_rounds=EARLY_STOPPING_ROUNDS,
+                **xgb_device_kwargs(device),
                 **params,
             )
 
             model.fit(Xtr_p, ytr, eval_set=[(Xva_p, yva)], verbose=False)
 
+            # Mit bester Iteration vorhersagen wenn Early Stopping ausgelöst
             if getattr(model, "best_iteration", None) is not None:
                 pred = model.predict(Xva_p, iteration_range=(0, model.best_iteration + 1))
             else:
                 pred = model.predict(Xva_p)
 
-            return float(regression_metrics(yva, pred)["MAE"])
+            metrics = regression_metrics(yva, pred)
+            mae = metrics["MAE"]
+            r2 = metrics["R2"]
 
-        study = optuna.create_study(direction="minimize")
-        study.optimize(objective, n_trials=n_trials)
+            # Besten R² als sekundäre Metrik tracken (um Overfitting zu erkennen)
+            if r2 > best_trial_r2["r2"]:
+                best_trial_r2 = {"r2": r2, "trial": trial.number}
 
-        return {
-            "best_params": dict(study.best_params),
-            "best_val_mae": float(study.best_value),
-            "device": device,
-        }
+            # In Trial für Analyse speichern
+            trial.set_user_attr("rmse", metrics["RMSE"])
+            trial.set_user_attr("r2", r2)
+            trial.set_user_attr("best_iteration", getattr(model, "best_iteration", None))
+
+            return float(mae)  # MAE minimieren
+
+        # Study mit reproduzierbarem Seeding erstellen
+        study = create_optuna_study(
+            direction="minimize",
+            seed=self.seed,
+            study_name="success_residual_tuning",
+        )
+        study.optimize(objective, n_trials=n_trials, show_progress_bar=False)
+
+        # Artefakte sammeln
+        result = collect_tuning_artifacts(
+            study=study,
+            metric_name="mae",
+            device=device,
+            best_iteration=study.best_trial.user_attrs.get("best_iteration"),
+            extra_metrics={
+                "best_r2_across_trials": best_trial_r2["r2"],
+                "best_trial_rmse": study.best_trial.user_attrs.get("rmse"),
+                "best_trial_r2": study.best_trial.user_attrs.get("r2"),
+            },
+        )
+
+        return result.to_dict()

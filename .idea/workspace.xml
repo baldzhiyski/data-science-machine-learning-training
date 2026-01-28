@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="feat: implement cohort and artist trajectory target building utilities + refactor">
-      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/Project-Intro.md" afterDir="false" />
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="feat: refactor imports and enhance preprocessing in modeling scripts">
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/tuning_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_targets_and_feature_matrices.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_targets_and_feature_matrices.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/modeling/feature_schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/modeling/feature_schema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/06_tuning_and_robustness.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/artist_clustering.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/artist_clustering.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/artist_trajectory.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/artist_trajectory.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/hit.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/hit.py" afterDir="false" />
@@ -19,7 +15,6 @@
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/ranker.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/ranker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/success_pct.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/success_pct.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/success_residual.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/success_residual.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/track_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/models/track_similarity.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,23 +183,9 @@
       <workItem from="1769185034486" duration="17916000" />
       <workItem from="1769269936292" duration="12717000" />
       <workItem from="1769298026040" duration="714000" />
-      <workItem from="1769326958259" duration="10214000" />
-    </task>
-    <task id="LOCAL-00111" summary="Add Item-Item Co-visitation recommender and evaluation">
-      <option name="closed" value="true" />
-      <created>1767099282414</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1767099282414</updated>
-    </task>
-    <task id="LOCAL-00112" summary="Add Collaborative Filtering , User-based recommender and evaluation">
-      <option name="closed" value="true" />
-      <created>1767101838832</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1767101838832</updated>
+      <workItem from="1769326958259" duration="10504000" />
+      <workItem from="1769416548177" duration="11359000" />
+      <workItem from="1769586973021" duration="6672000" />
     </task>
     <task id="LOCAL-00113" summary="Add Collaborative Filtering , Item-based recommender and evaluation">
       <option name="closed" value="true" />
@@ -582,15 +563,29 @@
       <option name="project" value="LOCAL" />
       <updated>1769332983393</updated>
     </task>
-    <option name="localTasksCounter" value="160" />
+    <task id="LOCAL-00160" summary="feat: update feature matrix generation and enhance leakage guards for modeling tasks">
+      <option name="closed" value="true" />
+      <created>1769337413361</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1769337413361</updated>
+    </task>
+    <task id="LOCAL-00161" summary="feat: refactor imports and enhance preprocessing in modeling scripts">
+      <option name="closed" value="true" />
+      <created>1769337428346</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1769337428346</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changing some names" />
-    <MESSAGE value="refactor(notebooks): split notebook 03 into 3 parts for readability with the new base models; add reusable utils and workflow test; adjust project paths ; rename old hypertuning  and adding a TODO for it" />
     <MESSAGE value="Adding a TODO" />
     <MESSAGE value="Creating helper files and splitting the logic for the base models" />
     <MESSAGE value="Implementing tuning functions" />
@@ -614,7 +609,9 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="feat: add dataset modeling utilities for artist and album datasets" />
     <MESSAGE value="feat: implement cohort and artist trajectory target building utilities + refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: implement cohort and artist trajectory target building utilities + refactor" />
+    <MESSAGE value="feat: update feature matrix generation and enhance leakage guards for modeling tasks" />
+    <MESSAGE value="feat: refactor imports and enhance preprocessing in modeling scripts" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: refactor imports and enhance preprocessing in modeling scripts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

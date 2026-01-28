@@ -6,23 +6,57 @@ from sklearn.metrics import ndcg_score
 from ..data.splits import cohort_time_split
 from ..data.preprocess import TabularPreprocessor
 
+from .tuning_utils import (
+    create_optuna_study,
+    xgb_device_kwargs,
+    suggest_xgb_ranker_params,
+    collect_tuning_artifacts,
+    mean_ndcg_at_k,
+    pct_to_relevance,
+    EARLY_STOPPING_ROUNDS,
+)
+
 
 def _to_relevance_0_31(y_pct):
-    # simple mapping: percentile -> relevance bin 0..31
+    # Einfache Abbildung: Perzentil -> Relevanz-Bin 0..31
     y = np.asarray(y_pct)
     rel = np.floor(y / (100.0 / 32.0)).astype(int)
     return np.clip(rel, 0, 31).astype(np.int32)
 
 
 """
-Task: Success Percentile Ranking.
+Task: Erfolgs-Perzentil-Ranking (Learning-to-Rank).
+
+Tuning-Strategie:
+-----------------
+- Primäre Metrik: mittlerer NDCG@k auf Validierungs-Split
+- XGBoost-Objective: rank:ndcg (LambdaMART-ähnlich)
+- Early Stopping: 300 Runden mit n_estimators=20000 Obergrenze
+- Query-Gruppen: Kohortenbasiert (Tracks derselben Kohorte konkurrieren)
+
+Warum NDCG@k?
+- Standard-Ranking-Metrik, die Position und Relevanz berücksichtigt
+- Gewichtet niedrigere Positionen logarithmisch ab
+- k kontrolliert Tiefe der Ranking-Qualitäts-Optimierung
+
+Gruppen-Behandlung:
+------------------
+- Gruppen definiert durch cohort_ym (im selben Zeitraum veröffentlicht)
+- Gruppen müssen zusammenhängend sein (nach Kohorte sortiert vor Training)
+- Gruppengrößen werden validiert um Datenlänge zu entsprechen
+
+Relevanz-Binning:
+----------------
+- Perzentile (0-100) werden auf Relevanz-Labels (0-4) abgebildet
+- 5-Bin-Schema: <50=0, <80=1, <95=2, <99=3, >=99=4
+- Erfasst Erfolgsverteilung (Top 1% bekommt höchste Relevanz)
+
 Ziel:
-Modelliert die Rangordnung von Tracks innerhalb ihrer Kohorte basierend auf Erfolgpercentilen.
+Modelliert die Rangordnung von Tracks innerhalb ihrer Kohorte basierend auf Erfolgperzentilen.
 Hinweise:
-- Nutzt Learning-to-Rank-Methoden (z.B. LambdaMART) für
-    kohortenbasierte Rangvorhersagen.
+- Nutzt Learning-to-Rank-Methoden (z.B. LambdaMART) für kohortenbasierte Rangvorhersagen.
 - Kohortenbasierte Zeit-Splits sind wichtig, um Daten-Leakage zu vermeiden.
-- Relevanz-Binning (0-31) wird verwendet, um kontinuierliche Percentile in diskrete Relevanzstufen umzuwandeln.
+- Relevanz-Binning wird verwendet, um kontinuierliche Perzentile in diskrete Relevanzstufen umzuwandeln.
 """
 
 @dataclass
@@ -94,70 +128,38 @@ class RankerTrainer:
     def tune(self, ds, n_trials: int = 30, device: str = "cpu", k: int = 10):
         """
         Hyperparameter-Tuning für Ranking-Modell (XGBRanker).
-        Optimiert mean NDCG@k auf dem Validierungs-Split.
 
-        Improvements:
-        - Use large n_estimators cap + early stopping (do NOT tune n_estimators)
-        - Reduce capacity + enforce meaningful regularization
-        - Add gamma + max_leaves for better generalization with hist
+        Optimierungs-Strategie:
+        ----------------------
+        - Primäres Ziel: Maximiere mittleren NDCG@k auf Validierungs-Split
+        - XGBoost-Objective: rank:ndcg (LambdaMART-ähnlich)
+        - eval_metric: ndcg@k (für Early Stopping verwendet)
+        - Reproduzierbar: Fester TPE-Sampler-Seed
+
+        Gruppen-Behandlung:
+        ------------------
+        - Gruppen definiert durch cohort_ym (zusammenhängend nach Sortierung)
+        - Gruppengrößen vor Training validiert
+        - Per-Gruppen NDCG@k berechnet, dann gemittelt
+
+        Anti-Overfit-Maßnahmen:
+        ----------------------
+        - n_estimators=20000 mit 300 Runden Early Stopping
+        - max_depth 3-8 (leicht höhere Kapazität für Ranking erlaubt)
+        - max_leaves 16-256 (Hist-Regularisierer)
+        - Sinnvolle Regularisierung (reg_lambda >= 1)
+        - Subsampling 0.6-0.9 für Varianz-Reduktion
         """
-
-        import numpy as np
-        import optuna
-        from xgboost import XGBRanker
-
-        def _xgb_device_kwargs(dev: str | None):
-            dev = (dev or "cpu").lower().strip()
-            if dev == "gpu":
-                dev = "cuda"
-            if dev.startswith("cuda"):
-                return {"tree_method": "hist", "device": dev}
-            return {"tree_method": "hist", "device": "cpu"}
-
         def build_group_sizes(meta_df):
             return meta_df.groupby("cohort_ym", sort=False).size().to_list()
 
-        def pct_to_rel_0_4(arr: np.ndarray) -> np.ndarray:
-            return np.select(
-                [arr < 50, arr < 80, arr < 95, arr < 99, arr >= 99],
-                [0, 1, 2, 3, 4],
-            ).astype(int)
-
-        def mean_ndcg_at_k(y_true, y_score, groups, k=10):
-            import math
-            out = []
-            start = 0
-            y_true = np.asarray(y_true)
-            y_score = np.asarray(y_score)
-
-            for g in groups:
-                yt = y_true[start:start + g]
-                ys = y_score[start:start + g]
-                start += g
-
-                order = np.argsort(-ys)
-                yt_sorted = yt[order][:k]
-
-                dcg = 0.0
-                for i, rel in enumerate(yt_sorted, start=1):
-                    dcg += (2 ** rel - 1) / math.log2(i + 1)
-
-                ideal = np.sort(yt)[-k:][::-1]
-                idcg = 0.0
-                for i, rel in enumerate(ideal, start=1):
-                    idcg += (2 ** rel - 1) / math.log2(i + 1)
-
-                out.append(dcg / idcg if idcg > 0 else 0.0)
-
-            return float(np.mean(out)) if out else 0.0
-
-        # ---- Split (time-based by cohort) ----
+        # ---- Split (zeitbasiert nach Kohorte) ----
         idx_tr, idx_va, _ = cohort_time_split(ds.meta, cohort_col="cohort_ym", n_val=3, n_test=6)
 
         Xtr, ytr, mtr = ds.X.iloc[idx_tr], ds.y.iloc[idx_tr], ds.meta.iloc[idx_tr]
         Xva, yva, mva = ds.X.iloc[idx_va], ds.y.iloc[idx_va], ds.meta.iloc[idx_va]
 
-        # ---- Ensure groups are contiguous ----
+        # ---- Gruppen zusammenhängend machen (nach Kohorte sortieren) ----
         tr_order = mtr.sort_values("cohort_ym").index
         va_order = mva.sort_values("cohort_ym").index
 
@@ -173,44 +175,32 @@ class RankerTrainer:
         group_tr = build_group_sizes(mtr)
         group_va = build_group_sizes(mva)
 
+        # Gruppengrößen validieren
         if sum(group_tr) != len(Xtr):
             raise ValueError(f"group_tr sum {sum(group_tr)} != len(Xtr) {len(Xtr)}")
         if sum(group_va) != len(Xva):
             raise ValueError(f"group_va sum {sum(group_va)} != len(Xva) {len(Xva)}")
 
-        ytr_rel = pct_to_rel_0_4(ytr.to_numpy())
-        yva_rel = pct_to_rel_0_4(yva.to_numpy())
+        # Perzentile zu Relevanz-Labels konvertieren mit shared Utility
+        ytr_rel = pct_to_relevance(ytr.to_numpy(), n_bins=5)
+        yva_rel = pct_to_relevance(yva.to_numpy(), n_bins=5)
+
+        # Zusätzliche Metriken über Trials tracken
+        best_trial_info = {"ndcg": 0.0, "best_iteration": None, "trial": -1}
 
         def objective(trial):
-            params = {
-                # Let early stopping pick best number of trees
-                "n_estimators": 20000,
-                "learning_rate": trial.suggest_float("learning_rate", 0.01, 0.12, log=True),
+            nonlocal best_trial_info
 
-                # Capacity control
-                "max_depth": trial.suggest_int("max_depth", 3, 8),
-                "min_child_weight": trial.suggest_float("min_child_weight", 2.0, 50.0, log=True),
-
-                # Subsampling for generalization
-                "subsample": trial.suggest_float("subsample", 0.65, 0.95),
-                "colsample_bytree": trial.suggest_float("colsample_bytree", 0.65, 0.95),
-
-                # Meaningful regularization
-                "reg_lambda": trial.suggest_float("reg_lambda", 1.0, 50.0, log=True),
-                "reg_alpha": trial.suggest_float("reg_alpha", 1e-4, 2.0, log=True),
-                "gamma": trial.suggest_float("gamma", 0.0, 2.0),
-
-                # Hist-specific regularizer (optional but strong)
-                "max_leaves": trial.suggest_int("max_leaves", 16, 256),
-            }
+            # Suchraum von unified utilities holen
+            params = suggest_xgb_ranker_params(trial)
 
             ranker = XGBRanker(
                 objective="rank:ndcg",
                 random_state=self.seed,
                 n_jobs=4,
-                early_stopping_rounds=300,
+                early_stopping_rounds=EARLY_STOPPING_ROUNDS,
                 eval_metric=f"ndcg@{k}",
-                **_xgb_device_kwargs(device),
+                **xgb_device_kwargs(device),
                 **params,
             )
 
@@ -222,19 +212,46 @@ class RankerTrainer:
                 verbose=False,
             )
 
-            if getattr(ranker, "best_iteration", None) is not None:
-                y_score = ranker.predict(Xva_p, iteration_range=(0, ranker.best_iteration + 1))
+            # Mit bester Iteration vorhersagen wenn Early Stopping ausgelöst
+            best_iter = getattr(ranker, "best_iteration", None)
+            if best_iter is not None:
+                y_score = ranker.predict(Xva_p, iteration_range=(0, best_iter + 1))
             else:
                 y_score = ranker.predict(Xva_p)
 
-            return mean_ndcg_at_k(yva_rel, y_score, group_va, k=k)
+            # Mittleren NDCG@k über Gruppen berechnen mit shared Utility
+            ndcg = mean_ndcg_at_k(yva_rel, y_score, group_va, k=k)
 
-        study = optuna.create_study(direction="maximize")
-        study.optimize(objective, n_trials=n_trials)
+            # Bestes Ergebnis tracken
+            if ndcg > best_trial_info["ndcg"]:
+                best_trial_info = {"ndcg": ndcg, "best_iteration": best_iter, "trial": trial.number}
 
-        return {
-            "best_params": dict(study.best_params),
-            "best_val_mean_ndcg@k": float(study.best_value),
-            "k": k,
-            "device": device,
-        }
+            # In Trial für Analyse speichern
+            trial.set_user_attr("best_iteration", best_iter)
+            trial.set_user_attr("n_groups_val", len(group_va))
+
+            return ndcg  # NDCG@k maximieren
+
+        # Study mit reproduzierbarem Seeding erstellen
+        study = create_optuna_study(
+            direction="maximize",
+            seed=self.seed,
+            study_name="ranker_tuning",
+        )
+        study.optimize(objective, n_trials=n_trials, show_progress_bar=False)
+
+        # Artefakte sammeln
+        result = collect_tuning_artifacts(
+            study=study,
+            metric_name=f"ndcg@{k}",
+            device=device,
+            best_iteration=study.best_trial.user_attrs.get("best_iteration"),
+            extra_metrics={
+                "k": k,
+                "n_groups_train": len(group_tr),
+                "n_groups_val": len(group_va),
+                "relevance_bins": 5,
+            },
+        )
+
+        return result.to_dict()
