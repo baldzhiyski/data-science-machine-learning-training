@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="feat: enhance models with hyperparameter tuning utilities">
+    <list default="true" id="52e9c524-32d1-4e2f-a1d2-b9aa3f2b3a76" name="Changes" comment="feat: update training data loader to include additional features and targets">
+      <change afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/spotify-data-analysis-report.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/01_schema_and_eda.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/02_cleaning_and_rules.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_modeling_tables_build.ipynb.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/03_modeling_tables_build.ipynb.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_targets_and_feature_matrices.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/04_targets_and_feature_matrices.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/05_model_training_and_reports.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/TODOs.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/models.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/training_data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/uni-course/spotify-data-project/notebooks/utils/data/training_data_loader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,34 +58,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.filtering.executor&quot;: &quot;Run&quot;,
-    &quot;Python.run_pipeline.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/data-science/uni-course/exercises/blatt7&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.customization.CustomizationConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.filtering.executor": "Run",
+    "Python.run_pipeline.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/GitHub/data-science/uni-course/spotify-data-project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "com.github.copilot.settings.customization.CustomizationConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\GitHub\data-science\uni-course\spotify-data-project" />
       <recent name="C:\GitHub\data-science\uni-course\exercises\blatt7" />
       <recent name="C:\GitHub\data-science\machine-learning\ml-ops\project-1" />
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\data\reports\01_schema_overview\slice_000" />
       <recent name="C:\GitHub\data-science\machine-learning\machine-learning-specialization\notebooks" />
-      <recent name="C:\GitHub\data-science\scikit-learn-course\project" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\GitHub\data-science\uni-course\spotify-data-project\notebooks\utils\evaluation" />
@@ -184,15 +177,7 @@
       <workItem from="1769298026040" duration="714000" />
       <workItem from="1769326958259" duration="10504000" />
       <workItem from="1769416548177" duration="11359000" />
-      <workItem from="1769586973021" duration="13494000" />
-    </task>
-    <task id="LOCAL-00114" summary="Add TF Matrix Factorization  recommender and evaluation with TensorFlow">
-      <option name="closed" value="true" />
-      <created>1767102769237</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1767102769238</updated>
+      <workItem from="1769586973021" duration="14240000" />
     </task>
     <task id="LOCAL-00115" summary="Add Two-Tower recommendations and evaluation with TensorFlow">
       <option name="closed" value="true" />
@@ -578,14 +563,21 @@
       <option name="project" value="LOCAL" />
       <updated>1769594132640</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="feat: update training data loader to include additional features and targets">
+      <option name="closed" value="true" />
+      <created>1769612862045</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1769612862045</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creating helper files and splitting the logic for the base models" />
     <MESSAGE value="Implementing tuning functions" />
     <MESSAGE value="Adding notebook for tuning" />
     <MESSAGE value="Fixes of the tuning" />
@@ -610,7 +602,8 @@
     <MESSAGE value="feat: update feature matrix generation and enhance leakage guards for modeling tasks" />
     <MESSAGE value="feat: refactor imports and enhance preprocessing in modeling scripts" />
     <MESSAGE value="feat: enhance models with hyperparameter tuning utilities" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: enhance models with hyperparameter tuning utilities" />
+    <MESSAGE value="feat: update training data loader to include additional features and targets" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: update training data loader to include additional features and targets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
